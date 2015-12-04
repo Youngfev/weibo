@@ -16,8 +16,62 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]init];
+    self.window.frame = [UIScreen mainScreen].bounds;
+    
+    UITabBarController *tabBarVC = [[UITabBarController alloc]init];
+    self.window.rootViewController = tabBarVC;
+    
+//    UIViewController *vc1 = [[UIViewController alloc]init];
+//    vc1.tabBarItem.title = @"首页";
+//    vc1.tabBarItem.image = [UIImage imageNamed:@"tabbar_home"];
+//    vc1.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    NSMutableDictionary *textAttributes = [NSMutableDictionary dictionary];
+//    textAttributes[NSForegroundColorAttributeName] = HWColor(123, 123, 123);
+//    [vc1.tabBarItem setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+//    NSMutableDictionary *selectedTextAttributes = [NSMutableDictionary dictionary];
+//    selectedTextAttributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
+//    [vc1.tabBarItem setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
+//    vc1.view.backgroundColor = HWRandomColor;
+    
+    UIViewController *vc2 = [[UIViewController alloc]init];
+    vc2.view.backgroundColor = HWRandomColor;
+    
+    UIViewController *vc3 = [[UIViewController alloc]init];
+    vc3.view.backgroundColor = HWRandomColor;
+    
+    UIViewController *vc4 = [[UIViewController alloc]init];
+    vc4.view.backgroundColor = HWRandomColor;
+    
+//    tabBarVC.viewControllers = @[vc1,vc2,vc3,vc4];
+    UIViewController *vc1 = [self addChlidVC:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
+    
+    [tabBarVC addChildViewController:vc1];
+    [tabBarVC addChildViewController:vc2];
+    [tabBarVC addChildViewController:vc3];
+    [tabBarVC addChildViewController:vc4];
+    [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+-(UIViewController *)addChlidVC:(NSString*)title image:(NSString*)image selectedImage:(NSString*)selectedImage
+{
+    UIViewController *vc = [[UIViewController alloc]init];
+    vc.tabBarItem.title = title;
+    vc.tabBarItem.image = [UIImage imageNamed:image];
+    vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    NSMutableDictionary *textAttributes = [NSMutableDictionary dictionary];
+    textAttributes[NSForegroundColorAttributeName] = HWColor(123, 123, 123);
+    [vc.tabBarItem setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+    
+    NSMutableDictionary *selectedTextAttributes = [NSMutableDictionary dictionary];
+    selectedTextAttributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    [vc.tabBarItem setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
+    
+    vc.view.backgroundColor = HWRandomColor;
+    return vc;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
