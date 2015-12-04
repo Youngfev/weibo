@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CCFA0F871C11ADCE00EAF430 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F861C11ADCE00EAF430 /* main.m */; };
-		CCFA0F8A1C11ADCE00EAF430 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F891C11ADCE00EAF430 /* AppDelegate.m */; };
-		CCFA0F8D1C11ADCE00EAF430 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F8C1C11ADCE00EAF430 /* ViewController.m */; };
-		CCFA0F901C11ADCE00EAF430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F8E1C11ADCE00EAF430 /* Main.storyboard */; };
 		CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */; };
-		CCFA0F951C11ADCE00EAF430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F931C11ADCE00EAF430 /* LaunchScreen.storyboard */; };
 		CCFA0FA01C11ADCE00EAF430 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F9F1C11ADCE00EAF430 /* ____Tests.m */; };
 		CCFA0FAB1C11ADCE00EAF430 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */; };
+		CCFA0FBF1C11B09B00EAF430 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FBD1C11B09B00EAF430 /* AppDelegate.m */; };
+		CCFA0FC01C11B09B00EAF430 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FBE1C11B09B00EAF430 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +33,7 @@
 
 /* Begin PBXFileReference section */
 		CCFA0F821C11ADCE00EAF430 /* 微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CCFA0F861C11ADCE00EAF430 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CCFA0F881C11ADCE00EAF430 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CCFA0F891C11ADCE00EAF430 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CCFA0F8B1C11ADCE00EAF430 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CCFA0F8C1C11ADCE00EAF430 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		CCFA0F8F1C11ADCE00EAF430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CCFA0F941C11ADCE00EAF430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCFA0F961C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCFA0F9B1C11ADCE00EAF430 /* 微博项目Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "微博项目Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA0F9F1C11ADCE00EAF430 /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
@@ -51,6 +41,10 @@
 		CCFA0FA61C11ADCE00EAF430 /* 微博项目UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "微博项目UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
 		CCFA0FAC1C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCFA0FB81C11AEEC00EAF430 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+		CCFA0FBC1C11B09B00EAF430 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CCFA0FBD1C11B09B00EAF430 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CCFA0FBE1C11B09B00EAF430 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +95,7 @@
 		CCFA0F841C11ADCE00EAF430 /* 微博项目 */ = {
 			isa = PBXGroup;
 			children = (
-				CCFA0F881C11ADCE00EAF430 /* AppDelegate.h */,
-				CCFA0F891C11ADCE00EAF430 /* AppDelegate.m */,
-				CCFA0F8B1C11ADCE00EAF430 /* ViewController.h */,
-				CCFA0F8C1C11ADCE00EAF430 /* ViewController.m */,
-				CCFA0F8E1C11ADCE00EAF430 /* Main.storyboard */,
-				CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */,
-				CCFA0F931C11ADCE00EAF430 /* LaunchScreen.storyboard */,
-				CCFA0F961C11ADCE00EAF430 /* Info.plist */,
+				CCFA0FBB1C11B09B00EAF430 /* classes */,
 				CCFA0F851C11ADCE00EAF430 /* Supporting Files */,
 			);
 			path = "微博项目";
@@ -117,7 +104,9 @@
 		CCFA0F851C11ADCE00EAF430 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCFA0F861C11ADCE00EAF430 /* main.m */,
+				CCFA0F961C11ADCE00EAF430 /* Info.plist */,
+				CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */,
+				CCFA0FB81C11AEEC00EAF430 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +127,16 @@
 				CCFA0FAC1C11ADCE00EAF430 /* Info.plist */,
 			);
 			path = "微博项目UITests";
+			sourceTree = "<group>";
+		};
+		CCFA0FBB1C11B09B00EAF430 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				CCFA0FBC1C11B09B00EAF430 /* AppDelegate.h */,
+				CCFA0FBD1C11B09B00EAF430 /* AppDelegate.m */,
+				CCFA0FBE1C11B09B00EAF430 /* main.m */,
+			);
+			path = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,9 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCFA0F951C11ADCE00EAF430 /* LaunchScreen.storyboard in Resources */,
 				CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */,
-				CCFA0F901C11ADCE00EAF430 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,9 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCFA0F8D1C11ADCE00EAF430 /* ViewController.m in Sources */,
-				CCFA0F8A1C11ADCE00EAF430 /* AppDelegate.m in Sources */,
-				CCFA0F871C11ADCE00EAF430 /* main.m in Sources */,
+				CCFA0FC01C11B09B00EAF430 /* main.m in Sources */,
+				CCFA0FBF1C11B09B00EAF430 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,25 +306,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		CCFA0F8E1C11ADCE00EAF430 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCFA0F8F1C11ADCE00EAF430 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CCFA0F931C11ADCE00EAF430 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCFA0F941C11ADCE00EAF430 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		CCFA0FAD1C11ADCE00EAF430 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -356,6 +333,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -397,6 +375,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -414,6 +393,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/Youngfev/Documents/ObjectiveC/微博项目/PrefixHeader.pch";
 				INFOPLIST_FILE = "微博项目/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Youngfev.----";
@@ -425,6 +407,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/Youngfev/Documents/ObjectiveC/微博项目/PrefixHeader.pch";
 				INFOPLIST_FILE = "微博项目/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Youngfev.----";
