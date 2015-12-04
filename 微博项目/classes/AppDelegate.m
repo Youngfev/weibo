@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "HWHomeViewController.h"
+#import "HWMessageCenterViewController.h"
+#import "HWDiscoverViewController.h"
+#import "HWProfileViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,37 +20,27 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
     UITabBarController *tabBarVC = [[UITabBarController alloc]init];
     self.window.rootViewController = tabBarVC;
     
-//    UIViewController *vc1 = [[UIViewController alloc]init];
-//    vc1.tabBarItem.title = @"首页";
-//    vc1.tabBarItem.image = [UIImage imageNamed:@"tabbar_home"];
-//    vc1.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//    NSMutableDictionary *textAttributes = [NSMutableDictionary dictionary];
-//    textAttributes[NSForegroundColorAttributeName] = HWColor(123, 123, 123);
-//    [vc1.tabBarItem setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
-//    NSMutableDictionary *selectedTextAttributes = [NSMutableDictionary dictionary];
-//    selectedTextAttributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
-//    [vc1.tabBarItem setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
-//    vc1.view.backgroundColor = HWRandomColor;
+    HWHomeViewController *vc1 = [[HWHomeViewController alloc] init];
+    [self addChlidVC:vc1 withTitle:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
     
-    UIViewController *vc2 = [[UIViewController alloc]init];
-    vc2.view.backgroundColor = HWRandomColor;
+    HWMessageCenterViewController *vc2 = [[HWMessageCenterViewController alloc] init];
+    [self addChlidVC:vc2 withTitle:@"消息" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
     
-    UIViewController *vc3 = [[UIViewController alloc]init];
-    vc3.view.backgroundColor = HWRandomColor;
+    HWDiscoverViewController *vc3 = [[HWDiscoverViewController alloc] init];
+    [self addChlidVC:vc3 withTitle:@"发现" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
     
-    UIViewController *vc4 = [[UIViewController alloc]init];
-    vc4.view.backgroundColor = HWRandomColor;
+    HWProfileViewController *vc4 = [[HWProfileViewController alloc] init];
+    [self addChlidVC:vc4 withTitle:@"我" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
     
-//    tabBarVC.viewControllers = @[vc1,vc2,vc3,vc4];
-    UIViewController *vc1 = [self addChlidVC:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    
-    [tabBarVC addChildViewController:vc1];
+//tabBarVC.viewControllers = @[vc1,vc2,vc3,vc4];//添加子控制器
+    [tabBarVC addChildViewController:vc1];//添加子控制器
     [tabBarVC addChildViewController:vc2];
     [tabBarVC addChildViewController:vc3];
     [tabBarVC addChildViewController:vc4];
@@ -55,9 +49,9 @@
     return YES;
 }
 
--(UIViewController *)addChlidVC:(NSString*)title image:(NSString*)image selectedImage:(NSString*)selectedImage
+-(void)addChlidVC:(UIViewController*)vc withTitle:(NSString*)title image:(NSString*)image selectedImage:(NSString*)selectedImage
 {
-    UIViewController *vc = [[UIViewController alloc]init];
+//    UIViewController *vc = [[UIViewController alloc]init];
     vc.tabBarItem.title = title;
     vc.tabBarItem.image = [UIImage imageNamed:image];
     vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -71,7 +65,6 @@
     [vc.tabBarItem setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
     
     vc.view.backgroundColor = HWRandomColor;
-    return vc;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

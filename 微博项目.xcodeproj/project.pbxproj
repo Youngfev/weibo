@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC3BD61B1C11DEBB004C4B0B /* HWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD61A1C11DEBB004C4B0B /* HWHomeViewController.m */; };
+		CC3BD61E1C11DED1004C4B0B /* HWMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD61D1C11DED1004C4B0B /* HWMessageCenterViewController.m */; };
+		CC3BD6211C11DEF0004C4B0B /* HWDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD6201C11DEF0004C4B0B /* HWDiscoverViewController.m */; };
+		CC3BD6241C11DF05004C4B0B /* HWProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD6231C11DF05004C4B0B /* HWProfileViewController.m */; };
 		CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */; };
 		CCFA0FA01C11ADCE00EAF430 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F9F1C11ADCE00EAF430 /* ____Tests.m */; };
 		CCFA0FAB1C11ADCE00EAF430 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */; };
@@ -32,6 +36,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC3BD6191C11DEBB004C4B0B /* HWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomeViewController.h; sourceTree = "<group>"; };
+		CC3BD61A1C11DEBB004C4B0B /* HWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomeViewController.m; sourceTree = "<group>"; };
+		CC3BD61C1C11DED1004C4B0B /* HWMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMessageCenterViewController.h; sourceTree = "<group>"; };
+		CC3BD61D1C11DED1004C4B0B /* HWMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMessageCenterViewController.m; sourceTree = "<group>"; };
+		CC3BD61F1C11DEF0004C4B0B /* HWDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDiscoverViewController.h; sourceTree = "<group>"; };
+		CC3BD6201C11DEF0004C4B0B /* HWDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDiscoverViewController.m; sourceTree = "<group>"; };
+		CC3BD6221C11DF05004C4B0B /* HWProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWProfileViewController.h; sourceTree = "<group>"; };
+		CC3BD6231C11DF05004C4B0B /* HWProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWProfileViewController.m; sourceTree = "<group>"; };
 		CCFA0F821C11ADCE00EAF430 /* 微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCFA0F961C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,6 +147,14 @@
 				CCFA0FBC1C11B09B00EAF430 /* AppDelegate.h */,
 				CCFA0FBD1C11B09B00EAF430 /* AppDelegate.m */,
 				CCFA0FBE1C11B09B00EAF430 /* main.m */,
+				CC3BD6191C11DEBB004C4B0B /* HWHomeViewController.h */,
+				CC3BD61A1C11DEBB004C4B0B /* HWHomeViewController.m */,
+				CC3BD61C1C11DED1004C4B0B /* HWMessageCenterViewController.h */,
+				CC3BD61D1C11DED1004C4B0B /* HWMessageCenterViewController.m */,
+				CC3BD61F1C11DEF0004C4B0B /* HWDiscoverViewController.h */,
+				CC3BD6201C11DEF0004C4B0B /* HWDiscoverViewController.m */,
+				CC3BD6221C11DF05004C4B0B /* HWProfileViewController.h */,
+				CC3BD6231C11DF05004C4B0B /* HWProfileViewController.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -201,6 +221,7 @@
 		CCFA0F7A1C11ADCE00EAF430 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HW;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Youngfev;
 				TargetAttributes = {
@@ -270,7 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC3BD61B1C11DEBB004C4B0B /* HWHomeViewController.m in Sources */,
+				CC3BD6241C11DF05004C4B0B /* HWProfileViewController.m in Sources */,
 				CCFA0FC01C11B09B00EAF430 /* main.m in Sources */,
+				CC3BD61E1C11DED1004C4B0B /* HWMessageCenterViewController.m in Sources */,
+				CC3BD6211C11DEF0004C4B0B /* HWDiscoverViewController.m in Sources */,
 				CCFA0FBF1C11B09B00EAF430 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +509,7 @@
 				CCFA0FB11C11ADCE00EAF430 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CCFA0FB21C11ADCE00EAF430 /* Build configuration list for PBXNativeTarget "微博项目Tests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +518,7 @@
 				CCFA0FB41C11ADCE00EAF430 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CCFA0FB51C11ADCE00EAF430 /* Build configuration list for PBXNativeTarget "微博项目UITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +527,7 @@
 				CCFA0FB71C11ADCE00EAF430 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
