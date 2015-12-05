@@ -7,6 +7,7 @@
 //
 
 #import "HWProfileViewController.h"
+#import "HWTestViewController.h"
 
 @interface HWProfileViewController ()
 
@@ -20,8 +21,15 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // Uncomment the following line to display an Edit button in the navigation rbar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setting)];
+}
+-(void)setting
+{
+    HWTestViewController *test1 = [[HWTestViewController alloc] init];
+    test1.title = @"test 控制器";
+    [self.navigationController pushViewController:test1 animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

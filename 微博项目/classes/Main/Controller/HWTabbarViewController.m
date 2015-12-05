@@ -11,6 +11,7 @@
 #import "HWMessageCenterViewController.h"
 #import "HWDiscoverViewController.h"
 #import "HWProfileViewController.h"
+#import "HWNavigationController.h"
 
 @interface HWTabbarViewController ()
 @end
@@ -49,10 +50,9 @@
     selectedTextAttributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
     [vc.tabBarItem setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
     
-    vc.view.backgroundColor = HWRandomColor;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+//    vc.view.backgroundColor = HWRandomColor;
+    HWNavigationController *nav = [[HWNavigationController alloc] initWithRootViewController:vc];
     [self addChildViewController:nav];
-    NSLog(@"%@",self.navigationController);
 }
 
 @end
