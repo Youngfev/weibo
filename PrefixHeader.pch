@@ -15,9 +15,16 @@
 
 #define HWRandomColor HWColor(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
 
-
 #import "UIView+HWExtension.h"
 #import "UIBarButtonItem+Extension.h"
+
+#ifdef DEBUG//处于开发阶段
+#define HWLog(...) NSLog(__VA_ARGS__)
+#else//发布阶段
+#define HWLog(...)
+#endif
+
+
 
 
 #endif /* PrefixHeader_pch */
