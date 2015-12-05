@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC3BD61B1C11DEBB004C4B0B /* HWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD61A1C11DEBB004C4B0B /* HWHomeViewController.m */; };
-		CC3BD61E1C11DED1004C4B0B /* HWMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD61D1C11DED1004C4B0B /* HWMessageCenterViewController.m */; };
-		CC3BD6211C11DEF0004C4B0B /* HWDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD6201C11DEF0004C4B0B /* HWDiscoverViewController.m */; };
-		CC3BD6241C11DF05004C4B0B /* HWProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD6231C11DF05004C4B0B /* HWProfileViewController.m */; };
-		CC3BD6271C11E572004C4B0B /* HWTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD6261C11E572004C4B0B /* HWTabbarViewController.m */; };
-		CC8D928B1C12A37E00A01EBA /* UIView+HWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8D928A1C12A37E00A01EBA /* UIView+HWExtension.m */; };
+		CC6A32FD1C12C4F5000E682F /* HWDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32D91C12C4F5000E682F /* HWDiscoverViewController.m */; };
+		CC6A32FE1C12C4F5000E682F /* HWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32DF1C12C4F5000E682F /* HWHomeViewController.m */; };
+		CC6A32FF1C12C4F5000E682F /* UIView+HWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32E51C12C4F5000E682F /* UIView+HWExtension.m */; };
+		CC6A33001C12C4F5000E682F /* HWTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32E81C12C4F5000E682F /* HWTabbarViewController.m */; };
+		CC6A33011C12C4F5000E682F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32ED1C12C4F5000E682F /* AppDelegate.m */; };
+		CC6A33021C12C4F5000E682F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32EE1C12C4F5000E682F /* main.m */; };
+		CC6A33031C12C4F5000E682F /* HWMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32F31C12C4F5000E682F /* HWMessageCenterViewController.m */; };
+		CC6A33041C12C4F5000E682F /* HWProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32FA1C12C4F5000E682F /* HWProfileViewController.m */; };
 		CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */; };
 		CCFA0FA01C11ADCE00EAF430 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F9F1C11ADCE00EAF430 /* ____Tests.m */; };
 		CCFA0FAB1C11ADCE00EAF430 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */; };
-		CCFA0FBF1C11B09B00EAF430 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FBD1C11B09B00EAF430 /* AppDelegate.m */; };
-		CCFA0FC01C11B09B00EAF430 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FBE1C11B09B00EAF430 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,18 +38,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CC3BD6191C11DEBB004C4B0B /* HWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomeViewController.h; sourceTree = "<group>"; };
-		CC3BD61A1C11DEBB004C4B0B /* HWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomeViewController.m; sourceTree = "<group>"; };
-		CC3BD61C1C11DED1004C4B0B /* HWMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMessageCenterViewController.h; sourceTree = "<group>"; };
-		CC3BD61D1C11DED1004C4B0B /* HWMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMessageCenterViewController.m; sourceTree = "<group>"; };
-		CC3BD61F1C11DEF0004C4B0B /* HWDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDiscoverViewController.h; sourceTree = "<group>"; };
-		CC3BD6201C11DEF0004C4B0B /* HWDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDiscoverViewController.m; sourceTree = "<group>"; };
-		CC3BD6221C11DF05004C4B0B /* HWProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWProfileViewController.h; sourceTree = "<group>"; };
-		CC3BD6231C11DF05004C4B0B /* HWProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWProfileViewController.m; sourceTree = "<group>"; };
-		CC3BD6251C11E572004C4B0B /* HWTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabbarViewController.h; sourceTree = "<group>"; };
-		CC3BD6261C11E572004C4B0B /* HWTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabbarViewController.m; sourceTree = "<group>"; };
-		CC8D92891C12A37E00A01EBA /* UIView+HWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HWExtension.h"; sourceTree = "<group>"; };
-		CC8D928A1C12A37E00A01EBA /* UIView+HWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HWExtension.m"; sourceTree = "<group>"; };
+		CC6A32D81C12C4F5000E682F /* HWDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDiscoverViewController.h; sourceTree = "<group>"; };
+		CC6A32D91C12C4F5000E682F /* HWDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDiscoverViewController.m; sourceTree = "<group>"; };
+		CC6A32DE1C12C4F5000E682F /* HWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHomeViewController.h; sourceTree = "<group>"; };
+		CC6A32DF1C12C4F5000E682F /* HWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHomeViewController.m; sourceTree = "<group>"; };
+		CC6A32E41C12C4F5000E682F /* UIView+HWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HWExtension.h"; sourceTree = "<group>"; };
+		CC6A32E51C12C4F5000E682F /* UIView+HWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HWExtension.m"; sourceTree = "<group>"; };
+		CC6A32E71C12C4F5000E682F /* HWTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabbarViewController.h; sourceTree = "<group>"; };
+		CC6A32E81C12C4F5000E682F /* HWTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabbarViewController.m; sourceTree = "<group>"; };
+		CC6A32EC1C12C4F5000E682F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CC6A32ED1C12C4F5000E682F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CC6A32EE1C12C4F5000E682F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CC6A32F21C12C4F5000E682F /* HWMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMessageCenterViewController.h; sourceTree = "<group>"; };
+		CC6A32F31C12C4F5000E682F /* HWMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMessageCenterViewController.m; sourceTree = "<group>"; };
+		CC6A32F91C12C4F5000E682F /* HWProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWProfileViewController.h; sourceTree = "<group>"; };
+		CC6A32FA1C12C4F5000E682F /* HWProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWProfileViewController.m; sourceTree = "<group>"; };
 		CCFA0F821C11ADCE00EAF430 /* 微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCFA0F961C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,9 +63,6 @@
 		CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
 		CCFA0FAC1C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCFA0FB81C11AEEC00EAF430 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
-		CCFA0FBC1C11B09B00EAF430 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CCFA0FBD1C11B09B00EAF430 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CCFA0FBE1C11B09B00EAF430 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +90,220 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC6A32D51C12C4F5000E682F /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32D61C12C4F5000E682F /* Discover */,
+				CC6A32DC1C12C4F5000E682F /* Home */,
+				CC6A32E21C12C4F5000E682F /* Main */,
+				CC6A32F01C12C4F5000E682F /* MessageCenter */,
+				CC6A32F61C12C4F5000E682F /* Other */,
+				CC6A32F71C12C4F5000E682F /* Profile */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		CC6A32D61C12C4F5000E682F /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32D71C12C4F5000E682F /* Controller */,
+				CC6A32DA1C12C4F5000E682F /* Model */,
+				CC6A32DB1C12C4F5000E682F /* View */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		CC6A32D71C12C4F5000E682F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32D81C12C4F5000E682F /* HWDiscoverViewController.h */,
+				CC6A32D91C12C4F5000E682F /* HWDiscoverViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC6A32DA1C12C4F5000E682F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC6A32DB1C12C4F5000E682F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC6A32DC1C12C4F5000E682F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32DD1C12C4F5000E682F /* Controller */,
+				CC6A32E01C12C4F5000E682F /* Model */,
+				CC6A32E11C12C4F5000E682F /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CC6A32DD1C12C4F5000E682F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32DE1C12C4F5000E682F /* HWHomeViewController.h */,
+				CC6A32DF1C12C4F5000E682F /* HWHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC6A32E01C12C4F5000E682F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC6A32E11C12C4F5000E682F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC6A32E21C12C4F5000E682F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32E31C12C4F5000E682F /* Category */,
+				CC6A32E61C12C4F5000E682F /* Controller */,
+				CC6A32E91C12C4F5000E682F /* LIb */,
+				CC6A32EA1C12C4F5000E682F /* Model */,
+				CC6A32EB1C12C4F5000E682F /* Other */,
+				CC6A32EF1C12C4F5000E682F /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CC6A32E31C12C4F5000E682F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32E41C12C4F5000E682F /* UIView+HWExtension.h */,
+				CC6A32E51C12C4F5000E682F /* UIView+HWExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		CC6A32E61C12C4F5000E682F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32E71C12C4F5000E682F /* HWTabbarViewController.h */,
+				CC6A32E81C12C4F5000E682F /* HWTabbarViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC6A32E91C12C4F5000E682F /* LIb */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LIb;
+			sourceTree = "<group>";
+		};
+		CC6A32EA1C12C4F5000E682F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC6A32EB1C12C4F5000E682F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32EC1C12C4F5000E682F /* AppDelegate.h */,
+				CC6A32ED1C12C4F5000E682F /* AppDelegate.m */,
+				CC6A32EE1C12C4F5000E682F /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		CC6A32EF1C12C4F5000E682F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC6A32F01C12C4F5000E682F /* MessageCenter */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32F11C12C4F5000E682F /* Controller */,
+				CC6A32F41C12C4F5000E682F /* Model */,
+				CC6A32F51C12C4F5000E682F /* View */,
+			);
+			path = MessageCenter;
+			sourceTree = "<group>";
+		};
+		CC6A32F11C12C4F5000E682F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32F21C12C4F5000E682F /* HWMessageCenterViewController.h */,
+				CC6A32F31C12C4F5000E682F /* HWMessageCenterViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC6A32F41C12C4F5000E682F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC6A32F51C12C4F5000E682F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC6A32F61C12C4F5000E682F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		CC6A32F71C12C4F5000E682F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32F81C12C4F5000E682F /* Controller */,
+				CC6A32FB1C12C4F5000E682F /* Model */,
+				CC6A32FC1C12C4F5000E682F /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CC6A32F81C12C4F5000E682F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC6A32F91C12C4F5000E682F /* HWProfileViewController.h */,
+				CC6A32FA1C12C4F5000E682F /* HWProfileViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC6A32FB1C12C4F5000E682F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC6A32FC1C12C4F5000E682F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CCFA0F791C11ADCE00EAF430 = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +327,7 @@
 		CCFA0F841C11ADCE00EAF430 /* 微博项目 */ = {
 			isa = PBXGroup;
 			children = (
-				CCFA0FBB1C11B09B00EAF430 /* classes */,
+				CC6A32D51C12C4F5000E682F /* classes */,
 				CCFA0F851C11ADCE00EAF430 /* Supporting Files */,
 			);
 			path = "微博项目";
@@ -145,28 +359,6 @@
 				CCFA0FAC1C11ADCE00EAF430 /* Info.plist */,
 			);
 			path = "微博项目UITests";
-			sourceTree = "<group>";
-		};
-		CCFA0FBB1C11B09B00EAF430 /* classes */ = {
-			isa = PBXGroup;
-			children = (
-				CCFA0FBC1C11B09B00EAF430 /* AppDelegate.h */,
-				CCFA0FBD1C11B09B00EAF430 /* AppDelegate.m */,
-				CCFA0FBE1C11B09B00EAF430 /* main.m */,
-				CC3BD6191C11DEBB004C4B0B /* HWHomeViewController.h */,
-				CC3BD61A1C11DEBB004C4B0B /* HWHomeViewController.m */,
-				CC3BD61C1C11DED1004C4B0B /* HWMessageCenterViewController.h */,
-				CC3BD61D1C11DED1004C4B0B /* HWMessageCenterViewController.m */,
-				CC3BD61F1C11DEF0004C4B0B /* HWDiscoverViewController.h */,
-				CC3BD6201C11DEF0004C4B0B /* HWDiscoverViewController.m */,
-				CC3BD6221C11DF05004C4B0B /* HWProfileViewController.h */,
-				CC3BD6231C11DF05004C4B0B /* HWProfileViewController.m */,
-				CC3BD6251C11E572004C4B0B /* HWTabbarViewController.h */,
-				CC3BD6261C11E572004C4B0B /* HWTabbarViewController.m */,
-				CC8D92891C12A37E00A01EBA /* UIView+HWExtension.h */,
-				CC8D928A1C12A37E00A01EBA /* UIView+HWExtension.m */,
-			);
-			path = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,14 +493,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC3BD61B1C11DEBB004C4B0B /* HWHomeViewController.m in Sources */,
-				CC3BD6241C11DF05004C4B0B /* HWProfileViewController.m in Sources */,
-				CCFA0FC01C11B09B00EAF430 /* main.m in Sources */,
-				CC3BD61E1C11DED1004C4B0B /* HWMessageCenterViewController.m in Sources */,
-				CC3BD6211C11DEF0004C4B0B /* HWDiscoverViewController.m in Sources */,
-				CCFA0FBF1C11B09B00EAF430 /* AppDelegate.m in Sources */,
-				CC3BD6271C11E572004C4B0B /* HWTabbarViewController.m in Sources */,
-				CC8D928B1C12A37E00A01EBA /* UIView+HWExtension.m in Sources */,
+				CC6A32FE1C12C4F5000E682F /* HWHomeViewController.m in Sources */,
+				CC6A32FD1C12C4F5000E682F /* HWDiscoverViewController.m in Sources */,
+				CC6A33041C12C4F5000E682F /* HWProfileViewController.m in Sources */,
+				CC6A33031C12C4F5000E682F /* HWMessageCenterViewController.m in Sources */,
+				CC6A33001C12C4F5000E682F /* HWTabbarViewController.m in Sources */,
+				CC6A33011C12C4F5000E682F /* AppDelegate.m in Sources */,
+				CC6A32FF1C12C4F5000E682F /* UIView+HWExtension.m in Sources */,
+				CC6A33021C12C4F5000E682F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
