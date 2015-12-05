@@ -12,6 +12,7 @@
 		CC3BD6211C11DEF0004C4B0B /* HWDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD6201C11DEF0004C4B0B /* HWDiscoverViewController.m */; };
 		CC3BD6241C11DF05004C4B0B /* HWProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD6231C11DF05004C4B0B /* HWProfileViewController.m */; };
 		CC3BD6271C11E572004C4B0B /* HWTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3BD6261C11E572004C4B0B /* HWTabbarViewController.m */; };
+		CC8D928B1C12A37E00A01EBA /* UIView+HWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8D928A1C12A37E00A01EBA /* UIView+HWExtension.m */; };
 		CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */; };
 		CCFA0FA01C11ADCE00EAF430 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F9F1C11ADCE00EAF430 /* ____Tests.m */; };
 		CCFA0FAB1C11ADCE00EAF430 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */; };
@@ -47,6 +48,8 @@
 		CC3BD6231C11DF05004C4B0B /* HWProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWProfileViewController.m; sourceTree = "<group>"; };
 		CC3BD6251C11E572004C4B0B /* HWTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabbarViewController.h; sourceTree = "<group>"; };
 		CC3BD6261C11E572004C4B0B /* HWTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabbarViewController.m; sourceTree = "<group>"; };
+		CC8D92891C12A37E00A01EBA /* UIView+HWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HWExtension.h"; sourceTree = "<group>"; };
+		CC8D928A1C12A37E00A01EBA /* UIView+HWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HWExtension.m"; sourceTree = "<group>"; };
 		CCFA0F821C11ADCE00EAF430 /* 微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCFA0F961C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				CC3BD6231C11DF05004C4B0B /* HWProfileViewController.m */,
 				CC3BD6251C11E572004C4B0B /* HWTabbarViewController.h */,
 				CC3BD6261C11E572004C4B0B /* HWTabbarViewController.m */,
+				CC8D92891C12A37E00A01EBA /* UIView+HWExtension.h */,
+				CC8D928A1C12A37E00A01EBA /* UIView+HWExtension.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				CC3BD6211C11DEF0004C4B0B /* HWDiscoverViewController.m in Sources */,
 				CCFA0FBF1C11B09B00EAF430 /* AppDelegate.m in Sources */,
 				CC3BD6271C11E572004C4B0B /* HWTabbarViewController.m in Sources */,
+				CC8D928B1C12A37E00A01EBA /* UIView+HWExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

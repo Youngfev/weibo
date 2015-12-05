@@ -13,7 +13,6 @@
 #import "HWProfileViewController.h"
 
 @interface HWTabbarViewController ()
-
 @end
 
 @implementation HWTabbarViewController
