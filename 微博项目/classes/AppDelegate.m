@@ -7,10 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HWHomeViewController.h"
-#import "HWMessageCenterViewController.h"
-#import "HWDiscoverViewController.h"
-#import "HWProfileViewController.h"
+#import "HWTabbarViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,47 +21,12 @@
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    UITabBarController *tabBarVC = [[UITabBarController alloc]init];
+    HWTabbarViewController *tabBarVC = [[HWTabbarViewController alloc]init];
     self.window.rootViewController = tabBarVC;
     
-    HWHomeViewController *vc1 = [[HWHomeViewController alloc] init];
-    [self addChlidVC:vc1 withTitle:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    
-    HWMessageCenterViewController *vc2 = [[HWMessageCenterViewController alloc] init];
-    [self addChlidVC:vc2 withTitle:@"消息" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    
-    HWDiscoverViewController *vc3 = [[HWDiscoverViewController alloc] init];
-    [self addChlidVC:vc3 withTitle:@"发现" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    
-    HWProfileViewController *vc4 = [[HWProfileViewController alloc] init];
-    [self addChlidVC:vc4 withTitle:@"我" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    
-//tabBarVC.viewControllers = @[vc1,vc2,vc3,vc4];//添加子控制器
-    [tabBarVC addChildViewController:vc1];//添加子控制器
-    [tabBarVC addChildViewController:vc2];
-    [tabBarVC addChildViewController:vc3];
-    [tabBarVC addChildViewController:vc4];
     [self.window makeKeyAndVisible];
     
     return YES;
-}
-
--(void)addChlidVC:(UIViewController*)vc withTitle:(NSString*)title image:(NSString*)image selectedImage:(NSString*)selectedImage
-{
-//    UIViewController *vc = [[UIViewController alloc]init];
-    vc.tabBarItem.title = title;
-    vc.tabBarItem.image = [UIImage imageNamed:image];
-    vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    NSMutableDictionary *textAttributes = [NSMutableDictionary dictionary];
-    textAttributes[NSForegroundColorAttributeName] = HWColor(123, 123, 123);
-    [vc.tabBarItem setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
-    
-    NSMutableDictionary *selectedTextAttributes = [NSMutableDictionary dictionary];
-    selectedTextAttributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    [vc.tabBarItem setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
-    
-    vc.view.backgroundColor = HWRandomColor;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
