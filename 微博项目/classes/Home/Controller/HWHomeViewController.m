@@ -59,7 +59,10 @@
     [dropMenu showFrom:titleButton];
     
 //    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
-    titleButton.selected = YES;
+//    [UIView animateWithDuration:1.0 animations:^{
+        titleButton.selected = YES;
+//    }];
+    
 }
 
 -(void)friendSearch

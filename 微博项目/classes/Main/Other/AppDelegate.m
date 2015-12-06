@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HWTabbarViewController.h"
+#import "HWNewFeatureController.h"
 
 @interface AppDelegate ()
 
@@ -20,9 +21,20 @@
     
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
+
+    NSString *key = @"CFBundleVersion";
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];//从沙盒中读取info.plist中的版本，专用于读取info.plist
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];//从沙盒中读取版本号
+    if ([lastVersion isEqualToString:currentVersion]) {
+            HWTabbarViewController *tabBarVC = [[HWTabbarViewController alloc]init];//
+            self.window.rootViewController = tabBarVC;
+    }else{
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];//将版本号存储到沙盒
+        [[NSUserDefaults standardUserDefaults] synchronize];//立即存储进沙盒
+        HWNewFeatureController *newFeature = [[HWNewFeatureController alloc] init];
+        self.window.rootViewController = newFeature;
+    }
     
-    HWTabbarViewController *tabBarVC = [[HWTabbarViewController alloc]init];
-    self.window.rootViewController = tabBarVC;
     
     [self.window makeKeyAndVisible];
     

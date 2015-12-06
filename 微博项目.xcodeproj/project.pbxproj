@@ -22,6 +22,7 @@
 		CC6A33121C12FCCA000E682F /* HWSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A33111C12FCCA000E682F /* HWSearchBar.m */; };
 		CC6A33151C1331F6000E682F /* HWDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A33141C1331F6000E682F /* HWDropMenu.m */; };
 		CCCEDF531C1404A9000144E6 /* HWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCEDF521C1404A9000144E6 /* HWTabBar.m */; };
+		CCCEDF581C142FF7000144E6 /* HWNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCEDF571C142FF7000144E6 /* HWNewFeatureController.m */; };
 		CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */; };
 		CCFA0FA01C11ADCE00EAF430 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F9F1C11ADCE00EAF430 /* ____Tests.m */; };
 		CCFA0FAB1C11ADCE00EAF430 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */; };
@@ -73,6 +74,8 @@
 		CC6A33141C1331F6000E682F /* HWDropMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDropMenu.m; sourceTree = "<group>"; };
 		CCCEDF511C1404A9000144E6 /* HWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabBar.h; sourceTree = "<group>"; };
 		CCCEDF521C1404A9000144E6 /* HWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabBar.m; sourceTree = "<group>"; };
+		CCCEDF561C142FF7000144E6 /* HWNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWNewFeatureController.h; sourceTree = "<group>"; };
+		CCCEDF571C142FF7000144E6 /* HWNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWNewFeatureController.m; sourceTree = "<group>"; };
 		CCFA0F821C11ADCE00EAF430 /* 微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCFA0F961C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 		CC6A32D51C12C4F5000E682F /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				CCCEDF541C142FD4000144E6 /* NewFeature */,
 				CC6A32D61C12C4F5000E682F /* Discover */,
 				CC6A32DC1C12C4F5000E682F /* Home */,
 				CC6A32E21C12C4F5000E682F /* Main */,
@@ -337,6 +341,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CCCEDF541C142FD4000144E6 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				CCCEDF551C142FD4000144E6 /* Controller */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		CCCEDF551C142FD4000144E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCCEDF561C142FF7000144E6 /* HWNewFeatureController.h */,
+				CCCEDF571C142FF7000144E6 /* HWNewFeatureController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		CCFA0F791C11ADCE00EAF430 = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +561,7 @@
 				CC6A33071C12CCFC000E682F /* UIBarButtonItem+Extension.m in Sources */,
 				CC6A32FF1C12C4F5000E682F /* UIView+HWExtension.m in Sources */,
 				CC6A330E1C12DE82000E682F /* HWTestViewController.m in Sources */,
+				CCCEDF581C142FF7000144E6 /* HWNewFeatureController.m in Sources */,
 				CC6A33021C12C4F5000E682F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
