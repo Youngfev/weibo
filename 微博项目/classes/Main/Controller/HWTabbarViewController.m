@@ -12,8 +12,9 @@
 #import "HWDiscoverViewController.h"
 #import "HWProfileViewController.h"
 #import "HWNavigationController.h"
+#import "HWTabBar.h"
 
-@interface HWTabbarViewController ()
+@interface HWTabbarViewController ()<HWTabBarDelegate>
 @end
 
 @implementation HWTabbarViewController
@@ -31,6 +32,12 @@
     
     HWProfileViewController *vc4 = [[HWProfileViewController alloc] init];
     [self addChlidVC:vc4 withTitle:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    
+    //更换系统的tabbar KVC 更改只读的属性
+//    self.tabBar
+    [self setValue:[[HWTabBar alloc]init] forKey:@"tabBar"];
+    
+
 }
 
 -(void)addChlidVC:(UIViewController*)vc withTitle:(NSString*)title image:(NSString*)image selectedImage:(NSString*)selectedImage
@@ -53,6 +60,13 @@
 //    vc.view.backgroundColor = HWRandomColor;
     HWNavigationController *nav = [[HWNavigationController alloc] initWithRootViewController:vc];
     [self addChildViewController:nav];
+}
+
+-(void)tabBarDidClickPlusButton:(HWTabBar *)tabBar
+{
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor brownColor];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

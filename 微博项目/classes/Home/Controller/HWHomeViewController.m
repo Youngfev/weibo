@@ -9,7 +9,7 @@
 #import "HWHomeViewController.h"
 #import "HWDropMenu.h"
 
-@interface HWHomeViewController ()
+@interface HWHomeViewController ()<HWDropMenuDelegate>
 
 @end
 
@@ -29,6 +29,7 @@
     [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
 
     titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 100, 0, 0);
     titleButton.titleLabel.font = [UIFont systemFontOfSize:17];
@@ -37,37 +38,28 @@
     
     self.navigationItem.titleView = titleButton;
     
-    UIButton *view1 = [[UIButton alloc]initWithFrame:CGRectMake(10, 10, 100, 100)];
-    view1.backgroundColor = [UIColor brownColor];
-    [view1 addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:view1];
     
+//    UIButton *view1 = [[UIButton alloc]initWithFrame:CGRectMake(10, 10, 100, 100)];
+//    view1.backgroundColor = [UIColor brownColor];
+//    [view1 addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:view1];
+//    
 }
 
--(void)titleClick:(UIButton *)view1
+-(void)titleClick:(UIButton *)titleButton
 {
+
+    
     HWDropMenu *dropMenu = [HWDropMenu menu];
     UITableViewController *vc = [[UITableViewController alloc]init];
     vc.view.height = 200;
     vc.view.width = 200;
     dropMenu.contentController = vc;
-    [dropMenu showFrom:view1];
-//    [dropMenu dismiss];
-//    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
-//    
-//    //添加一层蒙板
-//    UIView *cover = [[UIView alloc]init];
-//    cover.backgroundColor = [UIColor clearColor];
-//    cover.frame = window.bounds;
-//    [window addSubview:cover];
-//    
-//    UIImageView *dropDownMenu = [[UIImageView alloc] init];
-//    dropDownMenu.image = [UIImage imageNamed:@"popover_background"];
-//    dropDownMenu.width = 217;
-//    dropDownMenu.height = 300;
-//    dropDownMenu.userInteractionEnabled = YES;
-//    
-//    [cover addSubview:dropDownMenu];
+    dropMenu.delegate = self;
+    [dropMenu showFrom:titleButton];
+    
+//    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    titleButton.selected = YES;
 }
 
 -(void)friendSearch
@@ -98,5 +90,11 @@
     return 0;
 }
 
+-(void)dropMenuDidDismisss:(HWDropMenu *)menu
+{
+    UIButton* titleBtn = (UIButton *)self.navigationItem.titleView;
+//    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    titleBtn.selected = NO;
+}
 
 @end
