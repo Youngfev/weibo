@@ -19,7 +19,7 @@
         
         self.background = [UIImage imageNamed:@"searchbar_textfield_background"];
         self.width = [UIScreen mainScreen].bounds.size.width;
-        self.height = 30;
+        self.height = 40;
         
         UIImageView *searchIcon = [[UIImageView alloc]init];
         searchIcon.image = [UIImage imageNamed:@"searchbar_textfield_search_icon"];

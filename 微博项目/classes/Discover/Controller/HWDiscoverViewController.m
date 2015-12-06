@@ -9,8 +9,7 @@
 #import "HWDiscoverViewController.h"
 #import "HWSearchBar.h"
 
-@interface HWDiscoverViewController ()
-
+@interface HWDiscoverViewController ()<UITextFieldDelegate>
 @end
 
 @implementation HWDiscoverViewController
@@ -25,17 +24,28 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     HWSearchBar *searchBar = [HWSearchBar searchBar];
-    searchBar.width = [UIScreen mainScreen].bounds.size.width;
-    searchBar.height = 30;
+//    searchBar.width = [UIScreen mainScreen].bounds.size.width;
+//    searchBar.height = 30;
     self.navigationItem.titleView = searchBar;
+    searchBar.delegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
     
 }
-
+-(void)dismissKeyboard
+{
+    [self.navigationItem.titleView resignFirstResponder];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+//-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    [self.navigationItem.titleView endEditing:YES];
+//}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -47,4 +57,11 @@
 #warning Incomplete implementation, return the number of rows
     return 0;
 }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
 @end
