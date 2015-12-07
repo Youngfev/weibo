@@ -8,6 +8,8 @@
 
 #import "HWHomeViewController.h"
 #import "HWDropMenu.h"
+#import "AFNetworking.h"
+#import "HWAccountTool.h"
 
 @interface HWHomeViewController ()<HWDropMenuDelegate>
 
@@ -17,33 +19,73 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self setUpNav];
     
+    [self setUpUserInfo];
+}
+-(void)setUpUserInfo
+{
+    
+    
+    /**
+     URL
+     https://api.weibo.com/2/users/show.json
+     
+     必选	类型及范围	说明
+     source	false	string	采用OAuth授权方式不需要此参数，其他授权方式为必填参数，数值为应用的AppKey。
+     access_token	false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
+     uid	false	int64	需要查询的用户ID。
+     screen_name	false	string	需要查询的用户昵称。
+     */
+    
+    
+    //请求管理者
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    AFJSONResponseSerializer
+    //拼接请求参数
+    HWAccount *account = [HWAccountTool account];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = account.access_token;
+    parameters[@"uid"] = account.uid;
+    //发送请求
+    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        
+        UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+        NSString *name = responseObject[@"name"];
+        
+        account.name = name;
+        [HWAccountTool saveAccount:account];
+        [titleButton setTitle:name forState:UIControlStateNormal];
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+        HWLog(@"%@",error);
+    }];
+}
+
+-(void)setUpNav
+{
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(friendSearch) image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
     self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
-
+    
     UIButton *titleButton = [[UIButton alloc]init];
     titleButton.width = 200;
     titleButton.height = 30;
     
-    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    NSString *name = [HWAccountTool account].name;
+    [titleButton setTitle:name?name:@"首页" forState:UIControlStateNormal];
     [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
-
-    titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 100, 0, 0);
+    
+    titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 145, 0, 0);
     titleButton.titleLabel.font = [UIFont systemFontOfSize:17];
     
     [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.titleView = titleButton;
-    
-    
-//    UIButton *view1 = [[UIButton alloc]initWithFrame:CGRectMake(10, 10, 100, 100)];
-//    view1.backgroundColor = [UIColor brownColor];
-//    [view1 addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:view1];
-//    
 }
 
 -(void)titleClick:(UIButton *)titleButton
