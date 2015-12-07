@@ -14,13 +14,16 @@
  
  "access_token" = "2.00oKu2tBrsoVUDeda8a22cceqzG3KD";
  
- 18305141261
- Yangbin789456
  
  */
 
 #import "HWOAuthController.h"
 #import "AFNetworking.h"
+#import "HWTabbarViewController.h"
+#import "HWNewFeatureController.h"
+#import "HWAccount.h"
+#import "MBProgressHUD+MJ.h"
+#import "HWAccountTool.h"
 
 @interface HWOAuthController ()<UIWebViewDelegate>
 
@@ -51,11 +54,13 @@
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    HWLog(@"webViewDidStartLoad");
+    [MBProgressHUD showMessage:@"正在加载"];
+//    HWLog(@"webViewDidStartLoad");
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    HWLog(@"webViewDidFinishLoad");
+    [MBProgressHUD hideHUD];
+//    HWLog(@"webViewDidFinishLoad");
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -84,6 +89,8 @@
          https://api.weibo.com/oauth2/access_token
          */
         [self accessTokenWithCode:code];
+        
+        return NO;
     }
     return YES;
 }
@@ -103,14 +110,28 @@
     parameters[@"redirect_uri"] = @"https://api.weibo.com/oauth2/default.html";
     //发送请求
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        //沙盒路径
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [doc stringByAppendingPathComponent:@"account.plist"];
-        //将数据写入沙盒
-        [responseObject writeToFile:path atomically:YES];
+       
+        HWAccount *account = [HWAccount accountWithDict:responseObject];
+        [HWAccountTool saveAccount:account];
         
-        HWLog(@"%@",responseObject);
+        
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        NSString *key = @"CFBundleVersion";
+        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];//从沙盒中读取info.plist中的版本，专用于读取info.plist
+        NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];//从沙盒中读取版本号
+        if ([lastVersion isEqualToString:currentVersion]) {
+            HWTabbarViewController *tabBarVC = [[HWTabbarViewController alloc]init];//
+            window.rootViewController = tabBarVC;
+        }else{
+            [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];//将版本号存储到沙盒
+            [[NSUserDefaults standardUserDefaults] synchronize];//立即存储进沙盒
+            HWNewFeatureController *newFeature = [[HWNewFeatureController alloc] init];
+            window.rootViewController = newFeature;
+        }
+        [MBProgressHUD hideHUD];
+//        HWLog(@"%@",responseObject);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        [MBProgressHUD hideHUD];
         HWLog(@"%@",error);
     }];
 }

@@ -10,6 +10,8 @@
 #import "HWTabbarViewController.h"
 #import "HWNewFeatureController.h"
 #include "HWOAuthController.h"
+#import "HWAccount.h"
+#import "HWAccountTool.h"
 
 @interface AppDelegate ()
 
@@ -22,13 +24,11 @@
     
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    
-    
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [doc stringByAppendingPathComponent:@"account.plist"];
-    NSDictionary *account = [NSDictionary dictionaryWithContentsOfFile:path];
+
+    HWAccount *account = [HWAccountTool account];
     
     if (account) {
+        
         NSString *key = @"CFBundleVersion";
         NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];//从沙盒中读取info.plist中的版本，专用于读取info.plist
         NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];//从沙盒中读取版本号
@@ -41,6 +41,7 @@
             HWNewFeatureController *newFeature = [[HWNewFeatureController alloc] init];
             self.window.rootViewController = newFeature;
         }
+        
     }else{
         self.window.rootViewController = [[HWOAuthController alloc] init];
     }
