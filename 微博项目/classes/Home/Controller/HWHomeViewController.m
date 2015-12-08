@@ -14,6 +14,8 @@
 #import "UIImageView+WebCache.h"
 #import "HWStatus.h"
 #import "HWUser.h"
+#import "MJExtension.h"
+#import "HWLoadMoreFooter.h"
 
 @interface HWHomeViewController ()<HWDropMenuDelegate>
 @property (nonatomic,strong) NSMutableArray *statuses;
@@ -36,28 +38,76 @@
     
     [self setUpUserInfo];
     
-    [self loadNewStatus];
+//    [self setUpUpRefresh];
+    [self setUpDownRefresh];
+    
 }
 
--(void)loadNewStatus
+//-(void)setUpUpRefresh
+//{
+//    HWLoadMoreFooter *footer = [HWLoadMoreFooter footer];
+//    footer.hidden = YES;
+//    self.tableView.tableFooterView = footer;
+//}
+
+
+-(void)setUpDownRefresh
 {
+    UIRefreshControl *refreshContr = [[UIRefreshControl alloc] init];
     
-    /**
-     https://api.weibo.com/2/statuses/friends_timeline.json
-     
-     
-     必选	类型及范围	说明
-     source	false	string	采用OAuth授权方式不需要此参数，其他授权方式为必填参数，数值为应用的AppKey。
-     access_token	false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
-     since_id	false	int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。
-     max_id	false	int64	若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
-     count	false	int	单页返回的记录条数，最大不超过100，默认为20。
-     page	false	int	返回结果的页码，默认为1。
-     base_app	false	int	是否只获取当前应用的数据。0为否（所有数据），1为是（仅当前应用），默认为0。
-     feature	false	int	过滤类型ID，0：全部、1：原创、2：图片、3：视频、4：音乐，默认为0。
-     trim_user	false	int	返回值中user字段开关，0：返回完整user字段、1：user字段仅返回user_id，默认为0。
-     
-     */
+    [refreshContr beginRefreshing];
+    [self refreshStateChange:refreshContr];
+    
+    [refreshContr addTarget:self action:@selector(refreshStateChange:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshContr];
+}
+
+/**
+ *  加载更多的微博数据
+ */
+- (void)loadMoreStatus
+{
+//    // 1.请求管理者
+//    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+//    
+//    // 2.拼接请求参数
+//    HWAccount *account = [HWAccountTool account];
+//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//    params[@"access_token"] = account.access_token;
+//    
+//    // 取出最后面的微博（最新的微博，ID最大的微博）
+//    HWStatus *lastStatus = [self.statuses lastObject];
+//    if (lastStatus) {
+//        // 若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
+//        // id这种数据一般都是比较大的，一般转成整数的话，最好是long long类型
+//        long long maxId = lastStatus.idstr.longLongValue - 1;
+//        params[@"max_id"] = @(maxId);
+//    }
+//    
+//    // 3.发送请求
+//    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+//        // 将 "微博字典"数组 转为 "微博模型"数组
+//        NSArray *newStatuses = [HWStatus mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+//        
+//        // 将更多的微博数据，添加到总数组的最后面
+//        [self.statuses addObjectsFromArray:newStatuses];
+//        
+//        // 刷新表格
+//        [self.tableView reloadData];
+//        
+//        // 结束刷新(隐藏footer)
+//        self.tableView.tableFooterView.hidden = YES;
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        HWLog(@"请求失败-%@", error);
+//        
+//        // 结束刷新
+//        self.tableView.tableFooterView.hidden = YES;
+//    }];
+}
+
+-(void)refreshStateChange:(UIRefreshControl *)refreshContr
+{
+//    HWLog(@"refreshStateChange");
     //请求管理者
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //    AFJSONResponseSerializer
@@ -65,26 +115,67 @@
     HWAccount *account = [HWAccountTool account];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
-//    parameters[@"count"] = @1;
+    HWStatus *firstStatus = [self.statuses firstObject];
+    if (firstStatus) {
+        parameters[@"since_id"] = firstStatus.idstr;
+    }
+    //    parameters[@"count"] = @1;
     //发送请求
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSArray *dictArray = responseObject[@"statuses"];
-        
+        NSMutableArray *newStatuses = [NSMutableArray array];
         for (NSDictionary *dict in dictArray) {
-            HWStatus *status = [HWStatus statusWithDict:dict];
-            [self.statuses addObject:status];
+            HWStatus *status = [HWStatus mj_objectWithKeyValues:dict];
+            [newStatuses addObject:status];
         }
+        
+        NSRange range = NSMakeRange(0, newStatuses.count);
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.statuses insertObjects:newStatuses atIndexes:indexSet];
         
         [self.tableView reloadData];
         
-//        [self.statuses writeToFile:@"/Users/Youngfev/Desktop/test.txt" atomically:YES];
-//        HWLog(@"%@",responseObject[@"statuses"]);
+        [refreshContr endRefreshing];
         
+        [self showNewStatusCount:newStatuses.count];
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         
         HWLog(@"%@",error);
+        [refreshContr endRefreshing];
     }];
+}
 
+-(void)showNewStatusCount:(NSInteger)count
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    label.width = [UIScreen mainScreen].bounds.size.width;
+    label.height = 35;
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:16];
+    
+    if (!count) {
+        label.text = @"没有新的微博，稍后再试";
+    }else{
+        label.text = [NSString stringWithFormat:@"有%ld条新微博",count];
+    }
+    
+    label.y = 64 - label.height;
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    [UIView animateWithDuration:1.0 animations:^{
+//        label.y += label.height;
+        label.transform = CGAffineTransformMakeTranslation(0, label.height);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//            label.y -= label.height;
+            label.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
+    }];
+    
 }
 
 -(void)setUpUserInfo
@@ -115,7 +206,7 @@
     [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
-        HWUser *user = [HWUser userWithDict:responseObject];
+        HWUser *user = [HWUser mj_objectWithKeyValues:responseObject];
 //        NSString *name = responseObject[@"name"];
         
         account.name = user.name;
@@ -178,7 +269,14 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+    
+////    self.tableView.tableFooterView.hidden = self.statuses.count == 0;
+//    if (self.statuses.count) {
+//        self.tableView.tableFooterView.hidden = NO;
+//    }else{
+//        self.tableView.tableFooterView.hidden = YES;
+//    }
+    
     return self.statuses.count;
 }
 
@@ -207,6 +305,25 @@
     
     return cell;
 }
+
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    // 如果tableView还没有数据，就直接返回
+//    if (self.statuses.count == 0 || self.tableView.tableFooterView.isHidden == NO) return;
+//    
+//    CGFloat offsetY = scrollView.contentOffset.y;
+//    
+//    // 当最后一个cell完全显示在眼前时，contentOffset的y值
+//    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
+//    if (offsetY >= judgeOffsetY) { // 最后一个cell完全进入视野范围内
+//        // 显示footer
+//        self.tableView.tableFooterView.hidden = NO;
+//        
+//        // 加载更多的微博数据
+//        [self loadMoreStatus];
+//    }
+//}
+
 
 -(void)dropMenuDidDismisss:(HWDropMenu *)menu
 {

@@ -13,5 +13,5 @@
 @property (nonatomic,copy) NSString* text;
 @property (nonatomic,strong) HWUser* user;
 
-+(instancetype)statusWithDict:(NSDictionary*)dict;
+//+(instancetype)statusWithDict:(NSDictionary*)dict;
 @end
