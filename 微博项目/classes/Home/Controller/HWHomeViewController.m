@@ -38,17 +38,18 @@
     
     [self setUpUserInfo];
     
-//    [self setUpUpRefresh];
+    [self setUpUpRefresh];
     [self setUpDownRefresh];
     
 }
 
-//-(void)setUpUpRefresh
-//{
-//    HWLoadMoreFooter *footer = [HWLoadMoreFooter footer];
+-(void)setUpUpRefresh
+{
+    HWLoadMoreFooter *footer = [HWLoadMoreFooter footer];
 //    footer.hidden = YES;
-//    self.tableView.tableFooterView = footer;
-//}
+    self.tableView.tableFooterView = footer;
+    self.tableView.tableFooterView.hidden = YES;
+}
 
 
 -(void)setUpDownRefresh
@@ -67,42 +68,42 @@
  */
 - (void)loadMoreStatus
 {
-//    // 1.请求管理者
-//    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-//    
-//    // 2.拼接请求参数
-//    HWAccount *account = [HWAccountTool account];
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    params[@"access_token"] = account.access_token;
-//    
-//    // 取出最后面的微博（最新的微博，ID最大的微博）
-//    HWStatus *lastStatus = [self.statuses lastObject];
-//    if (lastStatus) {
-//        // 若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
-//        // id这种数据一般都是比较大的，一般转成整数的话，最好是long long类型
-//        long long maxId = lastStatus.idstr.longLongValue - 1;
-//        params[@"max_id"] = @(maxId);
-//    }
-//    
-//    // 3.发送请求
-//    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-//        // 将 "微博字典"数组 转为 "微博模型"数组
-//        NSArray *newStatuses = [HWStatus mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-//        
-//        // 将更多的微博数据，添加到总数组的最后面
-//        [self.statuses addObjectsFromArray:newStatuses];
-//        
-//        // 刷新表格
-//        [self.tableView reloadData];
-//        
-//        // 结束刷新(隐藏footer)
-//        self.tableView.tableFooterView.hidden = YES;
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        HWLog(@"请求失败-%@", error);
-//        
-//        // 结束刷新
-//        self.tableView.tableFooterView.hidden = YES;
-//    }];
+    //请求管理者
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    AFJSONResponseSerializer
+    //拼接请求参数
+    HWAccount *account = [HWAccountTool account];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = account.access_token;
+    HWStatus *firstStatus = [self.statuses firstObject];
+    if (firstStatus) {
+        parameters[@"since_id"] = firstStatus.idstr;
+    }
+    //    parameters[@"count"] = @1;
+    //发送请求
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSArray *dictArray = responseObject[@"statuses"];
+        NSMutableArray *newStatuses = [NSMutableArray array];
+        for (NSDictionary *dict in dictArray) {
+            HWStatus *status = [HWStatus mj_objectWithKeyValues:dict];
+            [newStatuses addObject:status];
+        }
+        
+        NSRange range = NSMakeRange(0, newStatuses.count);
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.statuses insertObjects:newStatuses atIndexes:indexSet];
+        
+        [self.tableView reloadData];
+        self.tableView.tableFooterView.hidden = YES;
+//        [refreshContr endRefreshing];
+        
+//        [self showNewStatusCount:newStatuses.count];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+        HWLog(@"%@",error);
+        self.tableView.tableFooterView.hidden = YES;
+//        [refreshContr endRefreshing];
+    }];
 }
 
 -(void)refreshStateChange:(UIRefreshControl *)refreshContr
@@ -270,13 +271,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-////    self.tableView.tableFooterView.hidden = self.statuses.count == 0;
-//    if (self.statuses.count) {
-//        self.tableView.tableFooterView.hidden = NO;
-//    }else{
-//        self.tableView.tableFooterView.hidden = YES;
-//    }
-    
     return self.statuses.count;
 }
 
@@ -306,23 +300,23 @@
     return cell;
 }
 
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    // 如果tableView还没有数据，就直接返回
-//    if (self.statuses.count == 0 || self.tableView.tableFooterView.isHidden == NO) return;
-//    
-//    CGFloat offsetY = scrollView.contentOffset.y;
-//    
-//    // 当最后一个cell完全显示在眼前时，contentOffset的y值
-//    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
-//    if (offsetY >= judgeOffsetY) { // 最后一个cell完全进入视野范围内
-//        // 显示footer
-//        self.tableView.tableFooterView.hidden = NO;
-//        
-//        // 加载更多的微博数据
-//        [self loadMoreStatus];
-//    }
-//}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // 如果tableView还没有数据，就直接返回
+    if (self.statuses.count == 0 || self.tableView.tableFooterView.isHidden == NO) return;
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    // 当最后一个cell完全显示在眼前时，contentOffset的y值
+    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
+    if (offsetY >= judgeOffsetY) { // 最后一个cell完全进入视野范围内
+        // 显示footer
+        self.tableView.tableFooterView.hidden = NO;
+        
+        // 加载更多的微博数据
+        [self loadMoreStatus];
+    }
+}
 
 
 -(void)dropMenuDidDismisss:(HWDropMenu *)menu
