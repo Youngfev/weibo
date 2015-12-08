@@ -39,8 +39,47 @@
     [self setUpUserInfo];
     
     [self setUpUpRefresh];
+    
     [self setUpDownRefresh];
     
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+   
+}
+
+-(void)setUpUnreadCount
+{
+    //请求管理者
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    AFJSONResponseSerializer
+    //拼接请求参数
+    HWAccount *account = [HWAccountTool account];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = account.access_token;
+    parameters[@"uid"] = account.uid;
+//    HWStatus *firstStatus = [self.statuses firstObject];
+//    if (firstStatus) {
+//        parameters[@"since_id"] = firstStatus.idstr;
+//    }
+    //    parameters[@"count"] = @1;
+    //发送请求
+    [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+
+        //responseObject[@"status"]
+        NSString *status = [responseObject[@"status"] description];
+        if ([status isEqualToString:@"0"]) {
+            self.tabBarItem.badgeValue = nil;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        }else{
+            self.tabBarItem.badgeValue = status;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = status.intValue;
+        }
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+        HWLog(@"%@",error);
+    }];
 }
 
 -(void)setUpUpRefresh
@@ -148,6 +187,9 @@
 
 -(void)showNewStatusCount:(NSInteger)count
 {
+    
+    self.tabBarItem.badgeValue = nil;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     UILabel *label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
     label.width = [UIScreen mainScreen].bounds.size.width;
