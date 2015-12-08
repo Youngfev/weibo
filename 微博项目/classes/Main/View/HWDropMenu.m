@@ -66,7 +66,10 @@
 //    from.width = 199;
     self.containerView.centerX = CGRectGetMidX(newFrame);
     self.containerView.y = CGRectGetMaxY(newFrame);
-    
+    // 通知外界，自己显示了
+    if ([self.delegate respondsToSelector:@selector(dropMenuDidShow:)]) {
+        [self.delegate dropMenuDidShow:self];
+    }
 }
 
 - (void)dismiss;

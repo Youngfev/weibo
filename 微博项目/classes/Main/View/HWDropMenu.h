@@ -10,6 +10,7 @@
 @class HWDropMenu;
 @protocol HWDropMenuDelegate <NSObject>
 @optional
+-(void)dropMenuDidShow:(HWDropMenu *)menu;
 -(void)dropMenuDidDismisss:(HWDropMenu *)menu;
 
 @end

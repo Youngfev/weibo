@@ -11,6 +11,7 @@
 #import "HWAccountTool.h"
 
 @implementation HWAccountTool
+
 +(void)saveAccount:(HWAccount *)account
 {
     [NSKeyedArchiver archiveRootObject:account toFile:HWAccountPath];
