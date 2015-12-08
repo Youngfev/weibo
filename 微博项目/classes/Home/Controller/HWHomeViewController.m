@@ -43,7 +43,7 @@
     [self setUpDownRefresh];
     
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
    
 }
@@ -67,6 +67,8 @@
     [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
 
         //responseObject[@"status"]
+        
+#warning 未读数量桌面不提示，待测试
         NSString *status = [responseObject[@"status"] description];
         if ([status isEqualToString:@"0"]) {
             self.tabBarItem.badgeValue = nil;
@@ -168,6 +170,7 @@
             HWStatus *status = [HWStatus mj_objectWithKeyValues:dict];
             [newStatuses addObject:status];
         }
+        HWLog(@"operation.responseString  %@",operation.responseString);
         
         NSRange range = NSMakeRange(0, newStatuses.count);
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
@@ -245,7 +248,7 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
     parameters[@"uid"] = account.uid;
-    //发送请求
+    //发送请求https://api.weibo.com/2/statuses/public_timeline.json
     [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
