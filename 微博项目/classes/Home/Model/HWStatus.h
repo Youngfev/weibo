@@ -17,5 +17,6 @@
 
 /**	string	微博来源*/
 @property (nonatomic, copy) NSString *source;
-//+(instancetype)statusWithDict:(NSDictionary*)dict;
+
+@property (nonatomic,copy) NSArray* pic_urls;
 @end

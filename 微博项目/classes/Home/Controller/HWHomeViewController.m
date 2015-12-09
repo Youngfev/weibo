@@ -97,12 +97,12 @@
 -(void)setUpDownRefresh
 {
     UIRefreshControl *refreshContr = [[UIRefreshControl alloc] init];
+    [self.tableView addSubview:refreshContr];
     
     [refreshContr beginRefreshing];
-    [self refreshStateChange:refreshContr];
+    [self loadNewStatus:refreshContr];
     
-    [refreshContr addTarget:self action:@selector(refreshStateChange:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:refreshContr];
+    [refreshContr addTarget:self action:@selector(loadNewStatus:) forControlEvents:UIControlEventValueChanged];
 }
 
 /**
@@ -152,7 +152,7 @@
     }];
 }
 
--(void)refreshStateChange:(UIRefreshControl *)refreshContr
+-(void)loadNewStatus:(UIRefreshControl *)refreshContr
 {
     //请求管理者
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -190,6 +190,7 @@
         [refreshContr endRefreshing];
         
         [self showNewStatusCount:newStatuses.count];
+        HWLog(@"%@",responseObject);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         
         HWLog(@"%@",error);
@@ -323,17 +324,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    
-    
     HWStatusCell *cell = [HWStatusCell cellWithTableView:tableView];
-    
-    /**
-     
-     profile_image_url = http://tp1.sinaimg.cn/5496045720/50/5722759073/1
-     
-     
-     */
     
     cell.statusFrame = self.statusesFrames[indexPath.row];
     
@@ -361,8 +352,8 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HWStatusFrame *fra = self.statusesFrames[indexPath.row];
+//    HWLog(@"%f",fra.cellHeight);
     return fra.cellHeight;
-    HWLog(@"%f",fra.cellHeight);
 }
 
 -(void)dropMenuDidDismisss:(HWDropMenu *)menu

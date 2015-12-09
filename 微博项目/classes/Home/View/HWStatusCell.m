@@ -11,6 +11,7 @@
 #import "HWUser.h"
 #import "HWStatusFrame.h"
 #import "UIImageView+WebCache.h"
+#import "HWPhoto.h"
 
 
 @interface HWStatusCell()
@@ -127,10 +128,21 @@
         self.vipView.hidden = YES;
     }
 
-    
+
     /** 配图 */
-    self.photoView.frame = statusFrame.photoViewF;
-    self.photoView.backgroundColor = [UIColor redColor];
+   
+    
+    if (status.pic_urls.count) {
+         self.photoView.frame = statusFrame.photoViewF;
+        HWPhoto *photo = [status.pic_urls lastObject];
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_imageq_placeholder"]];
+        self.photoView.hidden = NO;
+    }else{
+        self.photoView.hidden = YES;
+
+    }
+    
+    
     
     /** 昵称 */
     self.nameLabel.text = user.name;

@@ -7,17 +7,12 @@
 //
 
 #import "HWStatus.h"
-#import "HWUser.h"
+#import "MJExtension.h"
+#import "HWPhoto.h"
 
 @implementation HWStatus
-//+(instancetype)statusWithDict:(NSDictionary*)dict
-//{
-//    HWStatus* status = [[self alloc]init];
-//    
-//    status.idstr = dict[@"idstr"];
-//    status.text = dict[@"text"];
-//    status.user = [HWUser userWithDict:dict[@"user"]];
-//    
-//    return status;
-//}
++ (NSDictionary*)mj_objectClassInArray
+{
+    return @{@"pic_urls":[HWPhoto class]};
+}
 @end

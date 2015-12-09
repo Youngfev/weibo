@@ -25,12 +25,12 @@
     return self;
 }
 
--(void)setFrame:(CGRect)frame
-{
-    frame.size.width += 10;
-    
-    [super setFrame:frame];
-}
+//-(void)setFrame:(CGRect)frame
+//{
+//    frame.size.width += 10;
+//    
+//    [super setFrame:frame];
+//}
 
 
 - (void)layoutSubviews
@@ -39,8 +39,8 @@
     // 如果仅仅是调整按钮内部titleLabel和imageView的位置，那么在layoutSubviews中单独设置位置即可
     
     // 1.计算titleLabel的frame
-//    self.titleLabel.x = 5;
-    self.titleLabel.x = self.imageView.x;
+    self.titleLabel.x = 5;
+//    self.titleLabel.x = self.imageView.x;
 //
 //    // 2.计算imageView的frame
     self.imageView.x = CGRectGetMaxX(self.titleLabel.frame)+5;
