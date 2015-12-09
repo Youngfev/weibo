@@ -16,6 +16,7 @@
 #import "HWUser.h"
 #import "MJExtension.h"
 #import "HWLoadMoreFooter.h"
+#import "HWStatusCell.h"
 
 @interface HWHomeViewController ()<HWDropMenuDelegate>
 @property (nonatomic,strong) NSMutableArray *statuses;
@@ -315,11 +316,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *reuseId = @"reuseId";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseId];
-    }
+
+    
+    
+    HWStatusCell *cell = [HWStatusCell cellWithTableView:tableView];
+    
     /**
      
      profile_image_url = http://tp1.sinaimg.cn/5496045720/50/5722759073/1
