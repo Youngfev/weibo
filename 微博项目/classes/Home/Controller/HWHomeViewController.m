@@ -42,9 +42,9 @@
     
     [self setUpDownRefresh];
     
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+#warning 暂时关闭
+//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
+//    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
    
 }
 
@@ -87,9 +87,9 @@
 -(void)setUpUpRefresh
 {
     HWLoadMoreFooter *footer = [HWLoadMoreFooter footer];
-//    footer.hidden = YES;
+    footer.hidden = YES;
     self.tableView.tableFooterView = footer;
-    self.tableView.tableFooterView.hidden = YES;
+//    self.tableView.tableFooterView.hidden = YES;
 }
 
 
@@ -116,9 +116,10 @@
     HWAccount *account = [HWAccountTool account];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
-    HWStatus *firstStatus = [self.statuses firstObject];
-    if (firstStatus) {
-        parameters[@"since_id"] = firstStatus.idstr;
+    HWStatus *lastStatus = [self.statuses lastObject];
+    if (lastStatus) {
+        long long maxId = lastStatus.idstr.longLongValue - 1;
+        parameters[@"max_id"] = @(maxId);
     }
     //    parameters[@"count"] = @1;
     //发送请求
@@ -129,19 +130,19 @@
             HWStatus *status = [HWStatus mj_objectWithKeyValues:dict];
             [newStatuses addObject:status];
         }
+//        
+//        NSRange range = NSMakeRange(0, newStatuses.count);
+//        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+//        [self.statuses insertObjects:newStatuses atIndexes:indexSet];
         
-        NSRange range = NSMakeRange(0, newStatuses.count);
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statuses insertObjects:newStatuses atIndexes:indexSet];
+        [self.statuses addObjectsFromArray:newStatuses];
         
         [self.tableView reloadData];
         self.tableView.tableFooterView.hidden = YES;
-//        [refreshContr endRefreshing];
         
-//        [self showNewStatusCount:newStatuses.count];
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         
-        HWLog(@"%@",error);
+        HWLog(@"请求失败-%@",error);
         self.tableView.tableFooterView.hidden = YES;
 //        [refreshContr endRefreshing];
     }];
@@ -170,7 +171,7 @@
             HWStatus *status = [HWStatus mj_objectWithKeyValues:dict];
             [newStatuses addObject:status];
         }
-        HWLog(@"operation.responseString  %@",operation.responseString);
+//        HWLog(@"operation.responseString  %@",operation.responseString);
         
         NSRange range = NSMakeRange(0, newStatuses.count);
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
@@ -305,14 +306,7 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
