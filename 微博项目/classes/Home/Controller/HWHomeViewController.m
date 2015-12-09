@@ -17,18 +17,19 @@
 #import "MJExtension.h"
 #import "HWLoadMoreFooter.h"
 #import "HWStatusCell.h"
+#import "HWStatusFrame.h"
 
 @interface HWHomeViewController ()<HWDropMenuDelegate>
-@property (nonatomic,strong) NSMutableArray *statuses;
+@property (nonatomic,strong) NSMutableArray *statusesFrames;
 @end
 
 @implementation HWHomeViewController
 
--(NSMutableArray *)statuses{
-    if (_statuses == nil) {
-        _statuses = [NSMutableArray array];
+-(NSMutableArray *)statusesFrames{
+    if (_statusesFrames == nil) {
+        _statusesFrames = [NSMutableArray array];
     }
-    return _statuses;
+    return _statusesFrames;
 }
 
 - (void)viewDidLoad {
@@ -93,7 +94,6 @@
 //    self.tableView.tableFooterView.hidden = YES;
 }
 
-
 -(void)setUpDownRefresh
 {
     UIRefreshControl *refreshContr = [[UIRefreshControl alloc] init];
@@ -117,9 +117,9 @@
     HWAccount *account = [HWAccountTool account];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
-    HWStatus *lastStatus = [self.statuses lastObject];
+    HWStatusFrame *lastStatus = [self.statusesFrames lastObject];
     if (lastStatus) {
-        long long maxId = lastStatus.idstr.longLongValue - 1;
+        long long maxId = lastStatus.status.idstr.longLongValue - 1;
         parameters[@"max_id"] = @(maxId);
     }
     //    parameters[@"count"] = @1;
@@ -131,12 +131,15 @@
             HWStatus *status = [HWStatus mj_objectWithKeyValues:dict];
             [newStatuses addObject:status];
         }
-//        
-//        NSRange range = NSMakeRange(0, newStatuses.count);
-//        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-//        [self.statuses insertObjects:newStatuses atIndexes:indexSet];
         
-        [self.statuses addObjectsFromArray:newStatuses];
+        NSMutableArray *newStatusFrames = [NSMutableArray array];
+        for (HWStatus *status in newStatuses) {
+            HWStatusFrame *fram = [[HWStatusFrame alloc] init];
+            fram.status = status;
+            [newStatusFrames addObject:fram];
+        }
+        
+        [self.statusesFrames addObjectsFromArray:newStatusFrames];
         
         [self.tableView reloadData];
         self.tableView.tableFooterView.hidden = YES;
@@ -151,7 +154,6 @@
 
 -(void)refreshStateChange:(UIRefreshControl *)refreshContr
 {
-//    HWLog(@"refreshStateChange");
     //请求管理者
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //    AFJSONResponseSerializer
@@ -159,11 +161,10 @@
     HWAccount *account = [HWAccountTool account];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
-    HWStatus *firstStatus = [self.statuses firstObject];
+    HWStatusFrame *firstStatus = [self.statusesFrames firstObject];
     if (firstStatus) {
-        parameters[@"since_id"] = firstStatus.idstr;
+        parameters[@"since_id"] = firstStatus.status.idstr;
     }
-    //    parameters[@"count"] = @1;
     //发送请求
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSArray *dictArray = responseObject[@"statuses"];
@@ -172,11 +173,17 @@
             HWStatus *status = [HWStatus mj_objectWithKeyValues:dict];
             [newStatuses addObject:status];
         }
-//        HWLog(@"operation.responseString  %@",operation.responseString);
         
-        NSRange range = NSMakeRange(0, newStatuses.count);
+        NSMutableArray *newStatusFrames = [NSMutableArray array];
+        for (HWStatus *status in newStatuses) {
+            HWStatusFrame *fram = [[HWStatusFrame alloc] init];
+            fram.status = status;
+            [newStatusFrames addObject:fram];
+        }
+        
+        NSRange range = NSMakeRange(0, newStatusFrames.count);
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statuses insertObjects:newStatuses atIndexes:indexSet];
+        [self.statusesFrames insertObjects:newStatusFrames atIndexes:indexSet];
         
         [self.tableView reloadData];
         
@@ -311,7 +318,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.statuses.count;
+    return self.statusesFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -328,14 +335,7 @@
      
      */
     
-    HWStatus *status = self.statuses[indexPath.row];
-    HWUser *user = status.user;
-    
-    NSString *profileImage = user.profile_image_url;
-    UIImage *placeholder = [UIImage imageNamed:@"avatar_default_small"];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:profileImage] placeholderImage:placeholder];
-    cell.textLabel.text = user.name;
-    cell.detailTextLabel.text = status.text;
+    cell.statusFrame = self.statusesFrames[indexPath.row];
     
     return cell;
 }
@@ -343,7 +343,7 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     // 如果tableView还没有数据，就直接返回
-    if (self.statuses.count == 0 || self.tableView.tableFooterView.isHidden == NO) return;
+    if (self.statusesFrames.count == 0 || self.tableView.tableFooterView.isHidden == NO) return;
     
     CGFloat offsetY = scrollView.contentOffset.y;
     
@@ -358,6 +358,12 @@
     }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HWStatusFrame *fra = self.statusesFrames[indexPath.row];
+    return fra.cellHeight;
+    HWLog(@"%f",fra.cellHeight);
+}
 
 -(void)dropMenuDidDismisss:(HWDropMenu *)menu
 {

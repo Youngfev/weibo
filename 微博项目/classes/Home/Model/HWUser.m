@@ -9,14 +9,15 @@
 #import "HWUser.h"
 
 @implementation HWUser
-//+(instancetype)userWithDict:(NSDictionary*)dict
+- (void)setMbtype:(int)mbtype
+{
+    _mbtype = mbtype;
+    
+    self.vip = mbtype > 2;
+}
+
+//- (BOOL)isVip
 //{
-//    HWUser* user = [[self alloc]init];
-//    
-//    user.idstr = dict[@"idstr"];
-//    user.name = dict[@"name"];
-//    user.profile_image_url = dict[@"profile_image_url"];
-//    
-//    return user;
+//    return self.mbrank > 2;
 //}
 @end
