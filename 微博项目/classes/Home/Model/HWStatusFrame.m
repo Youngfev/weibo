@@ -65,6 +65,7 @@
     CGFloat timeY = CGRectGetMaxY(self.nameLabelF) + HWStatusCellBorderW;
     CGSize timeSize = [self sizeWithText:status.created_at font:HWStatusCellTimeFont];
     self.timeLabelF = (CGRect){{timeX, timeY}, timeSize};
+//    self.timeLabelF
     
     /** 来源 */
     CGFloat sourceX = CGRectGetMaxX(self.timeLabelF) + HWStatusCellBorderW;
@@ -98,6 +99,52 @@
     
     self.originalViewF = CGRectMake(originalX, originalY, originalW, originalH);
     
-    self.cellHeight = CGRectGetMaxY(self.originalViewF);
+    CGFloat toolbarY = 0;
+    /**转发*/
+    if (self.status.retweeted_status) {
+        
+        HWStatus *retweeted_status = status.retweeted_status;
+        HWUser *retweeted_status_user = retweeted_status.user;
+        
+        CGFloat retweetContentX = HWStatusCellBorderW;
+        CGFloat retweetContentY = HWStatusCellBorderW;
+        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@",retweeted_status_user.name,retweeted_status.text];
+        CGSize retweetContentSize = [self sizeWithText:retweetContent font:HWStatusCellRetweetContentFont maxW:maxW];
+        self.retweetContentLabelF = (CGRect){{retweetContentX,retweetContentY},retweetContentSize};
+        
+        CGFloat retweetH = 0;
+        if (retweeted_status.pic_urls.count) {
+            
+            CGFloat retweetPhotoWH = 100;
+            CGFloat retweetPhotoX = retweetContentX;
+            CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelF) + HWStatusCellBorderW;
+            self.retweetPhotoViewF = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
+            retweetH = CGRectGetMaxY(self.retweetPhotoViewF) + HWStatusCellBorderW;
+        }else{
+            retweetH = CGRectGetMaxY(self.retweetContentLabelF) + HWStatusCellBorderW;
+        }
+
+        CGFloat retweetX = 0;
+        CGFloat retweetY = CGRectGetMaxY(self.originalViewF);
+        CGFloat retweetW = cellW;
+        
+        self.retweetViewF = CGRectMake(retweetX, retweetY, retweetW, retweetH);
+        
+
+        
+        toolbarY = CGRectGetMaxY(self.retweetViewF) + 0.5;
+        
+    }else{
+        toolbarY = CGRectGetMaxY(self.originalViewF) + 0.5;
+    }
+    
+
+    CGFloat toolbarX = 0;
+    CGFloat toolbarW = cellW;
+    CGFloat toolbarH = 30;
+    self.toolbarF = CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
+
+    self.cellHeight = CGRectGetMaxY(self.toolbarF) + HWStatusCellBorderW;
+    
 }
 @end

@@ -19,4 +19,10 @@
 @property (nonatomic, copy) NSString *source;
 
 @property (nonatomic,copy) NSArray* pic_urls;
+
+@property (nonatomic,strong) HWStatus *retweeted_status;
+
+@property (nonatomic,assign) NSInteger reposts_count;
+@property (nonatomic,assign) NSInteger comments_count;
+@property (nonatomic,assign) NSInteger attitudes_count;
 @end

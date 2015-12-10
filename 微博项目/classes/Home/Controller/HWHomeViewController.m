@@ -44,6 +44,9 @@
     
     [self setUpDownRefresh];
     
+    self.tableView.backgroundColor = HWColor(211, 211, 211);
+    self.tableView.contentInset = UIEdgeInsetsMake(74, 0, 0, 0);
+    
 #warning 暂时关闭
 //    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
 //    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
@@ -190,7 +193,7 @@
         [refreshContr endRefreshing];
         
         [self showNewStatusCount:newStatuses.count];
-        HWLog(@"%@",responseObject);
+//        HWLog(@"%@",responseObject);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         
         HWLog(@"%@",error);
