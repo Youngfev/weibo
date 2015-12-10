@@ -17,6 +17,8 @@
 
 #import "UIView+HWExtension.h"
 #import "UIBarButtonItem+Extension.h"
+#import "NSDate+Extension.h"
+#import "NSString+Extension.h"
 
 #ifdef DEBUG//处于开发阶段
 #define HWLog(...) NSLog(__VA_ARGS__)

@@ -60,6 +60,9 @@
 		CCCEDF581C142FF7000144E6 /* HWNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCEDF571C142FF7000144E6 /* HWNewFeatureController.m */; };
 		CCCEDF5D1C148B5C000144E6 /* HWOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCEDF5C1C148B5C000144E6 /* HWOAuthController.m */; };
 		CCCF9A591C191E550001D07C /* HWStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A581C191E550001D07C /* HWStatusToolbar.m */; };
+		CCCF9A5F1C1985FF0001D07C /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A5E1C1985FF0001D07C /* NSString+Extension.m */; };
+		CCCF9A621C199F400001D07C /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A611C199F400001D07C /* NSDate+Extension.m */; };
+		CCCF9A651C199F890001D07C /* HWStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */; };
 		CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */; };
 		CCFA0FA01C11ADCE00EAF430 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F9F1C11ADCE00EAF430 /* ____Tests.m */; };
 		CCFA0FAB1C11ADCE00EAF430 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */; };
@@ -202,6 +205,12 @@
 		CCCEDF5C1C148B5C000144E6 /* HWOAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWOAuthController.m; sourceTree = "<group>"; };
 		CCCF9A571C191E550001D07C /* HWStatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusToolbar.h; sourceTree = "<group>"; };
 		CCCF9A581C191E550001D07C /* HWStatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusToolbar.m; sourceTree = "<group>"; };
+		CCCF9A5D1C1985FF0001D07C /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		CCCF9A5E1C1985FF0001D07C /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		CCCF9A601C199F400001D07C /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		CCCF9A611C199F400001D07C /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		CCCF9A631C199F890001D07C /* HWStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusPhotosView.h; sourceTree = "<group>"; };
+		CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusPhotosView.m; sourceTree = "<group>"; };
 		CCFA0F821C11ADCE00EAF430 /* 微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCFA0F961C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -403,6 +412,8 @@
 				CC93ED261C17DFCB0018B6C8 /* HWStatusCell.m */,
 				CCCF9A571C191E550001D07C /* HWStatusToolbar.h */,
 				CCCF9A581C191E550001D07C /* HWStatusToolbar.m */,
+				CCCF9A631C199F890001D07C /* HWStatusPhotosView.h */,
+				CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -423,10 +434,14 @@
 		CC6A32E31C12C4F5000E682F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				CCCF9A601C199F400001D07C /* NSDate+Extension.h */,
+				CCCF9A611C199F400001D07C /* NSDate+Extension.m */,
 				CC6A32E41C12C4F5000E682F /* UIView+HWExtension.h */,
 				CC6A32E51C12C4F5000E682F /* UIView+HWExtension.m */,
 				CC6A33051C12CCFC000E682F /* UIBarButtonItem+Extension.h */,
 				CC6A33061C12CCFC000E682F /* UIBarButtonItem+Extension.m */,
+				CCCF9A5D1C1985FF0001D07C /* NSString+Extension.h */,
+				CCCF9A5E1C1985FF0001D07C /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -879,8 +894,10 @@
 				CC6CE7431C17EE71009B7787 /* HWStatusFrame.m in Sources */,
 				CC93ED271C17DFCB0018B6C8 /* HWStatusCell.m in Sources */,
 				CCFA48921C16794800C8AA2A /* HWUser.m in Sources */,
+				CCCF9A621C199F400001D07C /* NSDate+Extension.m in Sources */,
 				CC6762861C15D56800049853 /* SDWebImagePrefetcher.m in Sources */,
 				CC67628D1C15D56800049853 /* UIView+WebCacheOperation.m in Sources */,
+				CCCF9A5F1C1985FF0001D07C /* NSString+Extension.m in Sources */,
 				CCFA48B41C16804600C8AA2A /* NSObject+MJClass.m in Sources */,
 				CCFA48B31C16804600C8AA2A /* MJPropertyType.m in Sources */,
 				CCCF9A591C191E550001D07C /* HWStatusToolbar.m in Sources */,
@@ -918,6 +935,7 @@
 				CC6A33041C12C4F5000E682F /* HWProfileViewController.m in Sources */,
 				CCA7A6251C15368F005517A1 /* AFHTTPRequestOperationManager.m in Sources */,
 				CC6762841C15D56800049853 /* SDWebImageDownloaderOperation.m in Sources */,
+				CCCF9A651C199F890001D07C /* HWStatusPhotosView.m in Sources */,
 				CC6A33031C12C4F5000E682F /* HWMessageCenterViewController.m in Sources */,
 				CC6A33001C12C4F5000E682F /* HWTabbarViewController.m in Sources */,
 				CC6A33011C12C4F5000E682F /* AppDelegate.m in Sources */,

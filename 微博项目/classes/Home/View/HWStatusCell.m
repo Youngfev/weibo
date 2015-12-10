@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "HWPhoto.h"
 #import "HWStatusToolbar.h"
+#import "HWStatusPhotosView.h"
 
 
 @interface HWStatusCell()
@@ -24,7 +25,7 @@
 /** 会员图标 */
 @property (nonatomic, weak) UIImageView *vipView;
 /** 配图 */
-@property (nonatomic, weak) UIImageView *photoView;
+@property (nonatomic, weak) HWStatusPhotosView *photosView;
 /** 昵称 */
 @property (nonatomic, weak) UILabel *nameLabel;
 /** 时间 */
@@ -41,7 +42,7 @@
 /** 转发微博正文 + 昵称 */
 @property (nonatomic, weak) UILabel *retweetContentLabel;
 /** 转发配图 */
-@property (nonatomic, weak) UIImageView *retweetPhotoView;
+@property (nonatomic, weak) HWStatusPhotosView *retweetPhotosView;
 
 @property (nonatomic, weak) HWStatusToolbar *toolbar;
 @end
@@ -96,9 +97,9 @@
     self.retweetContentLabel = retweetContentLabel;
     
     /** 转发配图 */
-    UIImageView *retweetPhotoView = [[UIImageView alloc] init];
-    [retweetView addSubview:retweetPhotoView];
-    self.retweetPhotoView = retweetPhotoView;
+    HWStatusPhotosView *retweetPhotosView = [[HWStatusPhotosView alloc] init];
+    [retweetView addSubview:retweetPhotosView];
+    self.retweetPhotosView = retweetPhotosView;
     
 }
 
@@ -122,9 +123,9 @@
     self.vipView = vipView;
     
     /** 配图 */
-    UIImageView *photoView = [[UIImageView alloc] init];
-    [originalView addSubview:photoView];
-    self.photoView = photoView;
+    HWStatusPhotosView *photosView = [[HWStatusPhotosView alloc] init];
+    [originalView addSubview:photosView];
+    self.photosView = photosView;
     
     /** 昵称 */
     UILabel *nameLabel = [[UILabel alloc] init];
@@ -135,12 +136,14 @@
     /** 时间 */
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.font = HWStatusCellTimeFont;
+    timeLabel.textColor = [UIColor orangeColor];
     [originalView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     
     /** 来源 */
     UILabel *sourceLabel = [[UILabel alloc] init];
     sourceLabel.font = HWStatusCellSourceFont;
+    sourceLabel.textColor = HWColor(115, 115, 115);
     [originalView addSubview:sourceLabel];
     self.sourceLabel = sourceLabel;
     
@@ -155,6 +158,8 @@
 
 - (void)setStatusFrame:(HWStatusFrame *)statusFrame
 {
+    
+//    HWLog(@"setStatusFrame:(HWStatusFrame *)statusFrame");
     _statusFrame = statusFrame;
     
     HWStatus *status = statusFrame.status;
@@ -185,14 +190,47 @@
    
     
     if (status.pic_urls.count) {
-         self.photoView.frame = statusFrame.photoViewF;
-        HWPhoto *photo = [status.pic_urls lastObject];
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_imageq_placeholder"]];
-        self.photoView.hidden = NO;
+         self.photosView.frame = statusFrame.photosViewF;
+#warning todo
+//        HWPhoto *photo = [status.pic_urls lastObject];
+//        [self.photosView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_imageq_placeholder"]];
+        self.photosView.hidden = NO;
     }else{
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
 
     }
+    
+//    /** 昵称 */
+//    self.nameLabel.text = user.name;
+//    self.nameLabel.frame = statusFrame.nameLabelF;
+//    
+//    /** 时间 */
+//    NSString *time = status.created_at;
+//    CGFloat timeX = statusFrame.nameLabelF.origin.x;
+//    CGFloat timeY = CGRectGetMaxY(statusFrame.nameLabelF) + HWStatusCellBorderW;
+//    CGSize timeSize = [time sizeWithFont:HWStatusCellTimeFont];
+//    statusFrame.timeLabelF = (CGRect){{timeX, timeY}, timeSize};
+//    //    self.timeLabelF/** 时间 */
+//    self.timeLabel.text = time;
+//    
+//    /** 来源 */
+//    CGFloat sourceX = CGRectGetMaxX(self.timeLabel.frame) + HWStatusCellBorderW;
+//    CGFloat sourceY = timeY;
+//    CGSize sourceSize = [status.source sizeWithFont:HWStatusCellSourceFont];
+//    self.sourceLabel.frame = (CGRect){{sourceX, sourceY}, sourceSize};
+//
+//    
+//    
+////    self.sourceLabel.font = [UIFont systemFontOfSize:12];
+////    self.sourceLabel.frame = statusFrame.timeLabelF;
+//    
+//    /** 来源 */
+//    self.sourceLabel.text = status.source;
+////    self.sourceLabel.frame = statusFrame.sourceLabelF;
+//    
+//    /** 正文 */
+//    self.contentLabel.text = status.text;
+//    self.contentLabel.frame = statusFrame.contentLabelF;
     
     
     
@@ -200,17 +238,30 @@
     self.nameLabel.text = user.name;
     self.nameLabel.frame = statusFrame.nameLabelF;
     
+    //    NSString *newTime = status.created_at;
+    //    NSUInteger timeLen = self.timeLabel.text.length;
+    //    if (timeLen && timeLen != newTime.length) { //
+    //
+    //    }
     /** 时间 */
-    self.timeLabel.text = status.created_at;
-    self.timeLabel.frame = statusFrame.timeLabelF;
+    NSString *time = status.created_at;
+    CGFloat timeX = statusFrame.nameLabelF.origin.x;
+    CGFloat timeY = CGRectGetMaxY(statusFrame.nameLabelF) + HWStatusCellBorderW;
+    CGSize timeSize = [time sizeWithFont:HWStatusCellTimeFont];
+    self.timeLabel.frame = (CGRect){{timeX, timeY}, timeSize};
+    self.timeLabel.text = time;
     
     /** 来源 */
+    CGFloat sourceX = CGRectGetMaxX(self.timeLabel.frame) + HWStatusCellBorderW;
+    CGFloat sourceY = timeY;
+    CGSize sourceSize = [status.source sizeWithFont:HWStatusCellSourceFont];
+    self.sourceLabel.frame = (CGRect){{sourceX, sourceY}, sourceSize};
     self.sourceLabel.text = status.source;
-    self.sourceLabel.frame = statusFrame.sourceLabelF;
     
     /** 正文 */
     self.contentLabel.text = status.text;
     self.contentLabel.frame = statusFrame.contentLabelF;
+
     
     /**
      
@@ -234,16 +285,16 @@
         
         if (retweeted_status.pic_urls.count) {
             
-            self.retweetPhotoView.frame = statusFrame.retweetPhotoViewF;//statusFrame.photoViewF;
-            HWPhoto *retweetedPhoto = [status.retweeted_status.pic_urls firstObject];
-            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retweetedPhoto.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            self.retweetPhotosView.frame = statusFrame.retweetPhotosViewF;
+            #warning todo
+//            HWPhoto *retweetedPhoto = [status.retweeted_status.pic_urls firstObject];
+//            [self.retweetPhotosView sd_setImageWithURL:[NSURL URLWithString:retweetedPhoto.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
             
-//            HWLog(@"%@",retweetedPhoto.thumbnail_pic);
             
-            self.retweetPhotoView.hidden = NO;
+            self.retweetPhotosView.hidden = NO;
             
         }else{
-            self.retweetPhotoView.hidden = YES;
+            self.retweetPhotosView.hidden = YES;
         }
     }else{
         self.retweetView.hidden = YES;

@@ -330,6 +330,7 @@
     HWStatusCell *cell = [HWStatusCell cellWithTableView:tableView];
     
     cell.statusFrame = self.statusesFrames[indexPath.row];
+//    HWLog(@"%@",self.statusesFrames);
     
     return cell;
 }

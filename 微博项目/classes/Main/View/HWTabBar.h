@@ -13,6 +13,8 @@
 -(void)tabBarDidClickPlusButton:(HWTabBar *)tabBar;
 
 @end
+
 @interface HWTabBar : UITabBar
-@property (nonatomic,weak) id<HWTabBarDelegate> delegate;
+@property (nonatomic,weak) id<HWTabBarDelegate>  delegate;
+
 @end
