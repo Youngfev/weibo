@@ -191,7 +191,8 @@
     
     if (status.pic_urls.count) {
          self.photosView.frame = statusFrame.photosViewF;
-#warning todo
+         self.photosView.photos = status.pic_urls;
+//#warning todo
 //        HWPhoto *photo = [status.pic_urls lastObject];
 //        [self.photosView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_imageq_placeholder"]];
         self.photosView.hidden = NO;
@@ -286,7 +287,8 @@
         if (retweeted_status.pic_urls.count) {
             
             self.retweetPhotosView.frame = statusFrame.retweetPhotosViewF;
-            #warning todo
+            self.retweetPhotosView.photos = status.retweeted_status.pic_urls;
+//            #warning todo
 //            HWPhoto *retweetedPhoto = [status.retweeted_status.pic_urls firstObject];
 //            [self.retweetPhotosView sd_setImageWithURL:[NSURL URLWithString:retweetedPhoto.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
             

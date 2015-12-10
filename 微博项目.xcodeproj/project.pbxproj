@@ -63,6 +63,7 @@
 		CCCF9A5F1C1985FF0001D07C /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A5E1C1985FF0001D07C /* NSString+Extension.m */; };
 		CCCF9A621C199F400001D07C /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A611C199F400001D07C /* NSDate+Extension.m */; };
 		CCCF9A651C199F890001D07C /* HWStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */; };
+		CCCF9A6B1C19BB050001D07C /* HWStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A6A1C19BB050001D07C /* HWStatusPhotoView.m */; };
 		CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */; };
 		CCFA0FA01C11ADCE00EAF430 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F9F1C11ADCE00EAF430 /* ____Tests.m */; };
 		CCFA0FAB1C11ADCE00EAF430 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */; };
@@ -211,6 +212,9 @@
 		CCCF9A611C199F400001D07C /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		CCCF9A631C199F890001D07C /* HWStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusPhotosView.h; sourceTree = "<group>"; };
 		CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusPhotosView.m; sourceTree = "<group>"; };
+		CCCF9A661C19BAD70001D07C /* HWPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWPhotoView.h; sourceTree = "<group>"; };
+		CCCF9A691C19BB050001D07C /* HWStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusPhotoView.h; sourceTree = "<group>"; };
+		CCCF9A6A1C19BB050001D07C /* HWStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusPhotoView.m; sourceTree = "<group>"; };
 		CCFA0F821C11ADCE00EAF430 /* 微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCFA0F961C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -414,6 +418,9 @@
 				CCCF9A581C191E550001D07C /* HWStatusToolbar.m */,
 				CCCF9A631C199F890001D07C /* HWStatusPhotosView.h */,
 				CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */,
+				CCCF9A661C19BAD70001D07C /* HWPhotoView.h */,
+				CCCF9A691C19BB050001D07C /* HWStatusPhotoView.h */,
+				CCCF9A6A1C19BB050001D07C /* HWStatusPhotoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -905,6 +912,7 @@
 				CCFA48B81C16804600C8AA2A /* NSString+MJExtension.m in Sources */,
 				CCFA48BB1C16AAC500C8AA2A /* HWLoadMoreFooter.m in Sources */,
 				CCA7A6291C15368F005517A1 /* AFURLConnectionOperation.m in Sources */,
+				CCCF9A6B1C19BB050001D07C /* HWStatusPhotoView.m in Sources */,
 				CC6CE7461C1810DD009B7787 /* HWPhoto.m in Sources */,
 				CC6A330A1C12D2DD000E682F /* HWNavigationController.m in Sources */,
 				CCFA48B01C16804600C8AA2A /* MJFoundation.m in Sources */,

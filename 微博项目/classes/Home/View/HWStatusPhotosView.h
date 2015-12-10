@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWStatusPhotosView : UIView
 
+@interface HWStatusPhotosView : UIView
+@property (nonatomic,strong) NSArray * photos;
++ (CGSize)photosSizeWithCount:(NSInteger)count;
 @end
