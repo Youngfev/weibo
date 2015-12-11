@@ -48,8 +48,8 @@
     self.tableView.contentInset = UIEdgeInsetsMake(74, 0, 0, 0);
     
 #warning 暂时关闭
-//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
-//    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
    
 }
 
@@ -73,7 +73,6 @@
 
         //responseObject[@"status"]
         
-#warning 未读数量桌面不提示，待测试
         NSString *status = [responseObject[@"status"] description];
         if ([status isEqualToString:@"0"]) {
             self.tabBarItem.badgeValue = nil;
@@ -81,6 +80,7 @@
         }else{
             self.tabBarItem.badgeValue = status;
             [UIApplication sharedApplication].applicationIconBadgeNumber = status.intValue;
+            HWLog(@"%d",status.intValue);
         }
         
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {

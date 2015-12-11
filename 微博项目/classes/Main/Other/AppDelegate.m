@@ -49,6 +49,20 @@
     
     [self.window makeKeyAndVisible];
     
+    
+    //注册角标
+//    float sysVersion=[[UIDevice currentDevice]systemVersion].floatValue;
+//    
+//    if (sysVersion>=8.0) {
+    
+        UIUserNotificationType type=UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
+        
+        UIUserNotificationSettings *setting=[UIUserNotificationSettings settingsForTypes:type categories:nil];
+        
+        [[UIApplication sharedApplication]registerUserNotificationSettings:setting];
+        
+//    }
+    
     return YES;
 }
 
@@ -59,7 +73,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 #warning 后台运行
-    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+    __block UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
         [application endBackgroundTask:task];
     }];
 }

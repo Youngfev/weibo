@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC00C26F1C1A89EF00CB51D0 /* HWIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC00C26E1C1A89EF00CB51D0 /* HWIconView.m */; };
 		CC67627E1C15D56800049853 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC67625E1C15D56800049853 /* MKAnnotationView+WebCache.m */; };
 		CC67627F1C15D56800049853 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6762601C15D56800049853 /* NSData+ImageContentType.m */; };
 		CC6762801C15D56800049853 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6762621C15D56800049853 /* SDImageCache.m */; };
@@ -102,6 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC00C26D1C1A89EF00CB51D0 /* HWIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWIconView.h; sourceTree = "<group>"; };
+		CC00C26E1C1A89EF00CB51D0 /* HWIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWIconView.m; sourceTree = "<group>"; };
 		CC67625D1C15D56800049853 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		CC67625E1C15D56800049853 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		CC67625F1C15D56800049853 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -212,7 +215,6 @@
 		CCCF9A611C199F400001D07C /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		CCCF9A631C199F890001D07C /* HWStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusPhotosView.h; sourceTree = "<group>"; };
 		CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusPhotosView.m; sourceTree = "<group>"; };
-		CCCF9A661C19BAD70001D07C /* HWPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWPhotoView.h; sourceTree = "<group>"; };
 		CCCF9A691C19BB050001D07C /* HWStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusPhotoView.h; sourceTree = "<group>"; };
 		CCCF9A6A1C19BB050001D07C /* HWStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusPhotoView.m; sourceTree = "<group>"; };
 		CCFA0F821C11ADCE00EAF430 /* 微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -418,7 +420,6 @@
 				CCCF9A581C191E550001D07C /* HWStatusToolbar.m */,
 				CCCF9A631C199F890001D07C /* HWStatusPhotosView.h */,
 				CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */,
-				CCCF9A661C19BAD70001D07C /* HWPhotoView.h */,
 				CCCF9A691C19BB050001D07C /* HWStatusPhotoView.h */,
 				CCCF9A6A1C19BB050001D07C /* HWStatusPhotoView.m */,
 			);
@@ -502,6 +503,8 @@
 				CC6A33141C1331F6000E682F /* HWDropMenu.m */,
 				CCCEDF511C1404A9000144E6 /* HWTabBar.h */,
 				CCCEDF521C1404A9000144E6 /* HWTabBar.m */,
+				CC00C26D1C1A89EF00CB51D0 /* HWIconView.h */,
+				CC00C26E1C1A89EF00CB51D0 /* HWIconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				CC6762871C15D56800049853 /* UIButton+WebCache.m in Sources */,
 				CC6A330E1C12DE82000E682F /* HWTestViewController.m in Sources */,
 				CCCEDF581C142FF7000144E6 /* HWNewFeatureController.m in Sources */,
+				CC00C26F1C1A89EF00CB51D0 /* HWIconView.m in Sources */,
 				CCA7A62A1C15368F005517A1 /* AFURLRequestSerialization.m in Sources */,
 				CC6762801C15D56800049853 /* SDImageCache.m in Sources */,
 				CCFA48AE1C16804600C8AA2A /* MJDictionaryCache.m in Sources */,
