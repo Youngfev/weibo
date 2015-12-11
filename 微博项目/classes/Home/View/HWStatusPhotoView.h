@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//#import "HWPhoto.h"
+@class HWPhoto;
 @interface HWStatusPhotoView : UIImageView
-
+@property (nonatomic,strong) HWPhoto *photo;
 @end

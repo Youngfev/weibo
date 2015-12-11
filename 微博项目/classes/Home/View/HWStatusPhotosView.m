@@ -8,7 +8,8 @@
 
 #import "HWStatusPhotosView.h"
 #import "HWPhoto.h"
-#import "UIImageView+WebCache.h"
+
+#import "HWStatusPhotoView.h"
 
 #define HWStatusPhotoWH 70
 #define HWStatusPhotoMargin 10
@@ -31,19 +32,19 @@
     NSInteger photosCount = photos.count;
     
     while (self.subviews.count < photosCount) {
-        UIImageView *photoView = [[UIImageView alloc] init];
+        HWStatusPhotoView *photoView = [[HWStatusPhotoView alloc] init];
         [self addSubview:photoView];
     }
     
     for (NSInteger i = 0; i < self.subviews.count; i ++) {
-        UIImageView *photoView = self.subviews[i];
+        HWStatusPhotoView *photoView = self.subviews[i];
         
         if (i < photosCount) {
             photoView.hidden = NO;
             
-            HWPhoto *photo = photos[i];
+            photoView.photo = photos[i];
             
-            [photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            
         }else{
             photoView.hidden = YES;
         }
@@ -57,7 +58,7 @@
     
     NSInteger photosCount = self.photos.count;
     for (NSInteger i = 0; i < photosCount; i ++) {
-        UIImageView *photoView = self.subviews[i];
+        HWStatusPhotoView *photoView = self.subviews[i];
         
         NSInteger col = i % 3;
         NSInteger row = i / 3;
