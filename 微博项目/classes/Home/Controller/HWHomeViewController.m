@@ -47,8 +47,7 @@
     self.tableView.backgroundColor = HWColor(211, 211, 211);
     self.tableView.contentInset = UIEdgeInsetsMake(74, 0, 0, 0);
     
-#warning 暂时关闭
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
    
 }
@@ -80,7 +79,7 @@
         }else{
             self.tabBarItem.badgeValue = status;
             [UIApplication sharedApplication].applicationIconBadgeNumber = status.intValue;
-            HWLog(@"%d",status.intValue);
+//            HWLog(@"%d",status.intValue);
         }
         
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {

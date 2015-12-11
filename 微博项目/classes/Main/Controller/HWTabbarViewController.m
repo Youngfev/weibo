@@ -13,6 +13,7 @@
 #import "HWProfileViewController.h"
 #import "HWNavigationController.h"
 #import "HWTabBar.h"
+#import "HWComposeController.h"
 
 @interface HWTabbarViewController ()<HWTabBarDelegate>
 @end
@@ -64,9 +65,10 @@
 
 -(void)tabBarDidClickPlusButton:(HWTabBar *)tabBar
 {
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor brownColor];
-    [self presentViewController:vc animated:YES completion:nil];
+    HWComposeController *vc = [[HWComposeController alloc] init];
+    vc.view.backgroundColor = [UIColor whiteColor];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end
