@@ -14,7 +14,7 @@
 
 @implementation HWNavigationController
 //设置一次
-+(void)initialize
++ (void)initialize
 {
 //    UINavigationBar *navBar = [UINavigationBar appearance];//设置导航条
     UIBarButtonItem *item = [UIBarButtonItem appearance];//设置barButtonItem
@@ -36,11 +36,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if (self.viewControllers.count > 0) { // 这时push进来的控制器viewController，不是第一个子控制器（不是根控制器）

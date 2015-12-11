@@ -65,9 +65,9 @@
 
 -(void)tabBarDidClickPlusButton:(HWTabBar *)tabBar
 {
-    HWComposeController *vc = [[HWComposeController alloc] init];
-    vc.view.backgroundColor = [UIColor whiteColor];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    HWComposeController *composeVC = [[HWComposeController alloc] init];
+//    composeVC.view.backgroundColor = [UIColor whiteColor];
+    HWNavigationController *nav = [[HWNavigationController alloc] initWithRootViewController:composeVC];
     [self presentViewController:nav animated:YES completion:nil];
 }
 

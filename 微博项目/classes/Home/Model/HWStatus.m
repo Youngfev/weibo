@@ -92,7 +92,9 @@
     range.location = [source rangeOfString:@">"].location + 1;
     
     CFIndex index = [source rangeOfString:@"</"].location;
+  
     range.length = index - range.location;
+
     
     _source = [NSString stringWithFormat:@"来自 %@",[source substringWithRange:range]];
 }
