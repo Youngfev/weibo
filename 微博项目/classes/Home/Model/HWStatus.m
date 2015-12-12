@@ -91,7 +91,7 @@
     
     range.location = [source rangeOfString:@">"].location + 1;
     
-    CFIndex index = [source rangeOfString:@"</"].location;
+    NSUInteger index = [source rangeOfString:@"</"].location;
   
     range.length = index - range.location;
 
