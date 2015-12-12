@@ -47,7 +47,7 @@
     self.tableView.backgroundColor = HWColor(211, 211, 211);
     self.tableView.contentInset = UIEdgeInsetsMake(74, 0, 0, 0);
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:3000 target:self selector:@selector(setUpUnreadCount) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
    
 }

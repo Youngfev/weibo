@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class HWTabBar;
-@protocol HWTabBarDelegate <NSObject,UITabBarDelegate>//先继承父类的代理
+@protocol HWTabBarDelegate <UITabBarDelegate>//先继承父类的代理
 @optional
 -(void)tabBarDidClickPlusButton:(HWTabBar *)tabBar;
 
 @end
 
 @interface HWTabBar : UITabBar
-@property (nonatomic,weak) id<HWTabBarDelegate>  delegate;
+@property (nonatomic,weak) id<HWTabBarDelegate> delegate;
 
 @end

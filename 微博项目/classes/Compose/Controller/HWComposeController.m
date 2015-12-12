@@ -8,6 +8,7 @@
 
 #import "HWComposeController.h"
 #import "HWAccountTool.h"
+#import "HWTextView.h"
 
 @interface HWComposeController ()
 
@@ -17,6 +18,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self setUpNav];
+    
+    [self setUpTextView];
+
+}
+
+-(void)setUpTextView
+{
+    HWTextView *textView = [[HWTextView alloc] init];
+    
+    textView.frame = self.view.bounds;
+    textView.placeholder = @"分享新鲜事...";
+    
+    [self.view addSubview:textView];
+}
+
+-(void)setUpNav
+{
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
@@ -24,12 +44,20 @@
 #warning enabled = NO;颜色改不了？？？
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
+    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    //    titleView.backgroundColor = [UIColor redColor];
+    titleView.textAlignment = UITextAlignmentCenter;
+    titleView.numberOfLines = 0;
     
-    NSString *name = [HWAccountTool account].name;
-    self.navigationItem.title = name;
-
+    NSString *str = [NSString stringWithFormat:@"发微博\n%@",[HWAccountTool account].name];
+    
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+    [attrStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:13] range:NSMakeRange(0, 3)];
+    [attrStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(4, [HWAccountTool account].name.length)];
+    
+    titleView.attributedText = attrStr;
+    self.navigationItem.titleView = titleView;
 }
-
 
 -(void)send
 {

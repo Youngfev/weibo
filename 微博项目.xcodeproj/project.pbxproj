@@ -66,6 +66,7 @@
 		CCCF9A621C199F400001D07C /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A611C199F400001D07C /* NSDate+Extension.m */; };
 		CCCF9A651C199F890001D07C /* HWStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */; };
 		CCCF9A6B1C19BB050001D07C /* HWStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCF9A6A1C19BB050001D07C /* HWStatusPhotoView.m */; };
+		CCEA3E8D1C1BCC4E0074C757 /* HWTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEA3E8C1C1BCC4E0074C757 /* HWTextView.m */; };
 		CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */; };
 		CCFA0FA01C11ADCE00EAF430 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0F9F1C11ADCE00EAF430 /* ____Tests.m */; };
 		CCFA0FAB1C11ADCE00EAF430 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFA0FAA1C11ADCE00EAF430 /* ____UITests.m */; };
@@ -220,6 +221,8 @@
 		CCCF9A641C199F890001D07C /* HWStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusPhotosView.m; sourceTree = "<group>"; };
 		CCCF9A691C19BB050001D07C /* HWStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusPhotoView.h; sourceTree = "<group>"; };
 		CCCF9A6A1C19BB050001D07C /* HWStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusPhotoView.m; sourceTree = "<group>"; };
+		CCEA3E8B1C1BCC4E0074C757 /* HWTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTextView.h; sourceTree = "<group>"; };
+		CCEA3E8C1C1BCC4E0074C757 /* HWTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTextView.m; sourceTree = "<group>"; };
 		CCFA0F821C11ADCE00EAF430 /* 微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCFA0F961C11ADCE00EAF430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -526,6 +529,8 @@
 				CCCEDF521C1404A9000144E6 /* HWTabBar.m */,
 				CC00C26D1C1A89EF00CB51D0 /* HWIconView.h */,
 				CC00C26E1C1A89EF00CB51D0 /* HWIconView.m */,
+				CCEA3E8B1C1BCC4E0074C757 /* HWTextView.h */,
+				CCEA3E8C1C1BCC4E0074C757 /* HWTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -966,6 +971,7 @@
 				CC6A32FD1C12C4F5000E682F /* HWDiscoverViewController.m in Sources */,
 				CCFA48B21C16804600C8AA2A /* MJPropertyKey.m in Sources */,
 				CC6A33041C12C4F5000E682F /* HWProfileViewController.m in Sources */,
+				CCEA3E8D1C1BCC4E0074C757 /* HWTextView.m in Sources */,
 				CCA7A6251C15368F005517A1 /* AFHTTPRequestOperationManager.m in Sources */,
 				CC6762841C15D56800049853 /* SDWebImageDownloaderOperation.m in Sources */,
 				CCCF9A651C199F890001D07C /* HWStatusPhotosView.m in Sources */,

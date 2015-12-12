@@ -13,7 +13,9 @@
 
 @implementation HWTabBar
 
--(instancetype)initWithFrame:(CGRect)frame
+@dynamic delegate;
+
+-(id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
         
@@ -28,7 +30,7 @@
         [plusBtn addTarget:self action:@selector(plusBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:plusBtn];
-        _plusBtn = plusBtn;
+        self.plusBtn = plusBtn;
     }
     return  self;
 }

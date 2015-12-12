@@ -26,7 +26,7 @@
     
     NSMutableDictionary *disableAttributes = [NSMutableDictionary dictionary];
     disableAttributes[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
-    disableAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    disableAttributes[NSFontAttributeName] = attributes[NSFontAttributeName];
     [item setTitleTextAttributes:disableAttributes forState:UIControlStateDisabled];
 }
 

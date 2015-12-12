@@ -57,11 +57,12 @@
     [super layoutSubviews];
     
     NSInteger photosCount = self.photos.count;
+    int maxCol = HWStatusPhotoMaxCol(photosCount);
     for (NSInteger i = 0; i < photosCount; i ++) {
         HWStatusPhotoView *photoView = self.subviews[i];
         
-        NSInteger col = i % 3;
-        NSInteger row = i / 3;
+        NSInteger col = i % maxCol;
+        NSInteger row = i / maxCol;
         photoView.x = col * (HWStatusPhotoWH + HWStatusPhotoMargin);
         photoView.y = row * (HWStatusPhotoWH + HWStatusPhotoMargin);
         photoView.width = HWStatusPhotoWH;
