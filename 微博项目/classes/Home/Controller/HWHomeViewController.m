@@ -211,7 +211,7 @@
     label.height = 35;
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont systemFontOfSize:16];
+    label.font = [UIFont systemFontOfSize:17];
     
     if (!count) {
         label.text = @"没有新的微博，稍后再试";

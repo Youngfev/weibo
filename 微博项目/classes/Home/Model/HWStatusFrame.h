@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 
 // 昵称字体
-#define HWStatusCellNameFont [UIFont systemFontOfSize:15]
+#define HWStatusCellNameFont [UIFont systemFontOfSize:16]
 // 时间字体
-#define HWStatusCellTimeFont [UIFont systemFontOfSize:12]
+#define HWStatusCellTimeFont [UIFont systemFontOfSize:14]
 // 来源字体
 #define HWStatusCellSourceFont HWStatusCellTimeFont
 // 正文字体
-#define HWStatusCellContentFont [UIFont systemFontOfSize:14]
+#define HWStatusCellContentFont [UIFont systemFontOfSize:15]
 // 转发正文字体
-#define HWStatusCellRetweetContentFont [UIFont systemFontOfSize:13]
+#define HWStatusCellRetweetContentFont [UIFont systemFontOfSize:14]
 // cell的边框宽度
 #define HWStatusCellBorderW 10
 

@@ -71,7 +71,7 @@
     [shareBtn setImage:[UIImage imageNamed:@"new_feature_share_true"] forState:UIControlStateSelected];
     [shareBtn setTitle:@"分享给大家" forState:UIControlStateNormal];
     [shareBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    shareBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    shareBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     shareBtn.width = 120;
     shareBtn.height = 30;
     shareBtn.centerX = imgView.width * 0.5;
@@ -90,7 +90,7 @@
     startBtn.y = imgView.height * 0.7;
     [startBtn setTitle:@"开始发微博" forState:UIControlStateNormal];
     [startBtn addTarget:self action:@selector(startBtnClick) forControlEvents:UIControlEventTouchDown];
-    startBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    startBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     
     [imgView addSubview:startBtn];
     

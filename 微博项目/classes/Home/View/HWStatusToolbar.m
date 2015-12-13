@@ -42,7 +42,7 @@
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:13];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [self addSubview:btn];
     return btn;
 }

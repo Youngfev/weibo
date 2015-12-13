@@ -11,9 +11,16 @@
 #import "HWTextView.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
+#import "HWComposeToolbar.h"
+#import "HWComposeToolbar.h"
+#import "HWComposePhotosView.h"
 
-@interface HWComposeController ()
+
+@interface HWComposeController ()<UITextViewDelegate,HWComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic,weak) HWTextView *textView;
+@property (nonatomic,weak) HWComposeToolbar *toolbar;
+@property (nonatomic,weak) HWComposePhotosView *photosView;
+
 @end
 
 @implementation HWComposeController
@@ -24,18 +31,69 @@
     [self setUpNav];
     
     [self setUpTextView];
+    
+    [self setupToolbar];
+    
+    [self setupPhotosView];
 
+}
+
+-(void)setupPhotosView
+{
+    HWComposePhotosView *photosView = [[HWComposePhotosView alloc] init];
+    
+    photosView.width = self.view.width;
+    photosView.height = self.view.height;
+    
+//    CGSize textF = [self.textView.text sizeWithFont:self.textView.font];
+    photosView.y = 100;
+    
+    [self.textView addSubview:photosView];
+    self.photosView = photosView;
+}
+
+-(void)setupToolbar
+{
+    HWComposeToolbar *toolbar = [[HWComposeToolbar alloc] init];
+    
+    toolbar.width = self.view.width;
+    toolbar.height = 44;
+    toolbar.y = self.view.height - toolbar.height;
+    toolbar.x = 0;
+    toolbar.delegate = self;
+    [self.view addSubview:toolbar];
+    self.toolbar = toolbar;
+    
 }
 
 -(void)setUpTextView
 {
     HWTextView *textView = [[HWTextView alloc] init];
-    
+    textView.alwaysBounceVertical = YES;
+    textView.delegate = self;
     textView.frame = self.view.bounds;
     textView.placeholder = @"分享新鲜事...";
     
     [self.view addSubview:textView];
     self.textView = textView;
+    
+    self.textView.font = [UIFont systemFontOfSize:16];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.textView becomeFirstResponder];
+}
+-(void)keyboardWillChangeFrame:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    NSTimeInterval interval = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:interval animations:^{
+        CGRect keyboardF = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        self.toolbar.y = keyboardF.origin.y - self.toolbar.height;
+    }];
 }
 
 -(void)setUpNav
@@ -55,8 +113,8 @@
     NSString *str = [NSString stringWithFormat:@"发微博\n%@",[HWAccountTool account].name];
     
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
-    [attrStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:13] range:NSMakeRange(0, 3)];
-    [attrStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(4, [HWAccountTool account].name.length)];
+    [attrStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15] range:NSMakeRange(0, 3)];
+    [attrStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(4, [HWAccountTool account].name.length)];
     
     titleView.attributedText = attrStr;
     self.navigationItem.titleView = titleView;
@@ -81,30 +139,74 @@
         HWLog(@"success");
         [self dismissViewControllerAnimated:YES completion:nil];
         [MBProgressHUD showMessage:@"发送成功"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+        });
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        [MBProgressHUD showMessage:@"发送失败"];
         HWLog(@"%@",error);
+        [MBProgressHUD showMessage:@"发送失败"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+        });
     }];
 }
 
 -(void)cancel
 {
+    [self.textView endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.textView endEditing:YES];
+}
+-(void)composeToolbar:(HWComposeToolbar *)toolbar didClickButton:(HWComposeToolbarType)type
+{
+    switch (type) {
+        case HWComposeToolbarTypeCamera:
+            [self openCamera];
+            break;
+        case HWComposeToolbarTypeEmotion:
+            HWLog(@"TypeTrend");
+            break;
+        case HWComposeToolbarTypeTrend:
+            HWLog(@"TypeTrend");
+            break;
+        case HWComposeToolbarTypeMention:
+            HWLog(@"TypeTrend");
+            break;
+        case HWComposeToolbarTypePicture:
+            [self openAlbum];
+            break;
+            
+        default:
+            break;
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)openCamera
+{
+    [self openImagePicker:UIImagePickerControllerSourceTypeCamera];
 }
-*/
-
+-(void)openAlbum
+{
+    [self openImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+-(void)openImagePicker:(UIImagePickerControllerSourceType)sourceType
+{
+    if (![UIImagePickerController isSourceTypeAvailable:sourceType]) return;
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = sourceType;
+    ipc.delegate = self;
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    [self.photosView addPhoto:image];
+}
 @end

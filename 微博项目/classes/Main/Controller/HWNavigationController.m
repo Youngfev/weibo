@@ -21,7 +21,7 @@
     
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     attributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    attributes[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    attributes[NSFontAttributeName] = [UIFont systemFontOfSize:16];
     [item setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
     NSMutableDictionary *disableAttributes = [NSMutableDictionary dictionary];
