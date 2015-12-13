@@ -21,11 +21,21 @@
 @property (nonatomic,weak) HWTextView *textView;
 @property (nonatomic,weak) HWComposeToolbar *toolbar;
 @property (nonatomic,weak) HWComposePhotosView *photosView;
-@property (nonatomic,weak) HWEmotionKeyboard *emotionKeyboard;
+@property (nonatomic,strong) HWEmotionKeyboard *emotionKeyboard;//strong
 @property (nonatomic,assign) BOOL isSwitchingKeyboard;
 @end
 
 @implementation HWComposeController
+
+-(HWEmotionKeyboard *)emotionKeyboard
+{
+    if (!_emotionKeyboard) {
+        self.emotionKeyboard = [[HWEmotionKeyboard alloc] init];
+        self.emotionKeyboard.width = self.view.width;
+        self.emotionKeyboard.height = 216;
+    }
+    return _emotionKeyboard;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -221,12 +231,11 @@
 -(void)switchKeyboard
 {
     if (self.textView.inputView == nil) {
-        HWEmotionKeyboard *emotionKeybaord = [[HWEmotionKeyboard alloc] init];
-        emotionKeybaord.width = self.view.width;
-        emotionKeybaord.height = 216;
-        self.textView.inputView = emotionKeybaord;
+        self.textView.inputView = self.emotionKeyboard;
+        self.toolbar.showKeyboardButton = YES;
     }else{
         self.textView.inputView = nil;
+        self.toolbar.showKeyboardButton = YES;
     }
     self.isSwitchingKeyboard = YES;
     

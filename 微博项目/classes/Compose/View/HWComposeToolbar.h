@@ -26,4 +26,5 @@ typedef enum {
 @end
 @interface HWComposeToolbar : UIView
 @property (nonatomic,weak) id<HWComposeToolbarDelegate> delegate;
+@property (nonatomic,assign) BOOL showKeyboardButton;
 @end

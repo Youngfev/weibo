@@ -8,6 +8,11 @@
 
 #import "HWComposeToolbar.h"
 
+@interface HWComposeToolbar ()
+@property (nonatomic,weak) UIButton *emotionButton;
+
+@end
+
 @implementation HWComposeToolbar
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -24,13 +29,13 @@
         
         [self setupBtn:@"compose_trendbutton_background" highImage:@"compose_trendbutton_background_highlighted" type:HWComposeToolbarTypeTrend];
         
-        [self setupBtn:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" type:HWComposeToolbarTypeEmotion];
+        self.emotionButton = [self setupBtn:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" type:HWComposeToolbarTypeEmotion];
         
     }
     return self;
     
 }
--(void)setupBtn:(NSString *)image highImage:(NSString *)highImage type:(HWComposeToolbarType)type
+-(UIButton *)setupBtn:(NSString *)image highImage:(NSString *)highImage type:(HWComposeToolbarType)type
 {
     UIButton *btn = [[UIButton alloc] init];
     
@@ -39,8 +44,27 @@
     btn.tag = type;
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
+    return btn;
 }
 
+-(void)setShowKeyboardButton:(BOOL)showKeyboardButton
+{
+    _showKeyboardButton = showKeyboardButton;
+    
+    // 默认的图片名
+    NSString *image = @"compose_emoticonbutton_background";
+    NSString *highImage = @"compose_emoticonbutton_background_highlighted";
+    
+    // 显示键盘图标
+    if (showKeyboardButton) {
+        image = @"compose_keyboardbutton_background";
+        highImage = @"compose_keyboardbutton_background_highlighted";
+    }
+    
+    // 设置图片
+    [self.emotionButton setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    [self.emotionButton setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
+}
 
 -(void)layoutSubviews
 {

@@ -1,5 +1,5 @@
 //
-//  HWEmotionTabBar.h
+//  HWEmotionTabBarButton.h
 //  微博项目
 //
 //  Created by Youngfev on 15/12/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWEmotionTabBar : UIView
+@interface HWEmotionTabBarButton : UIButton
 
 @end
