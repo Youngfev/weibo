@@ -8,7 +8,20 @@
 
 #import "HWComposePhotosView.h"
 
+@interface HWComposePhotosView ()
+@property (nonatomic,strong) NSMutableArray *addedPhotos;
+
+@end
+
 @implementation HWComposePhotosView
+
+-(NSMutableArray *)addedPhotos
+{
+    if (!_addedPhotos) {
+        self.addedPhotos = [NSMutableArray array];
+    }
+    return _addedPhotos;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -21,13 +34,21 @@
 
 -(void)addPhoto:(UIImage *)image
 {
-    UIImageView *img = [[UIImageView alloc] init];
+    UIImageView *photoView = [[UIImageView alloc] init];
     
-    img.image = image;
-    img.contentMode = UIViewContentModeScaleAspectFill;
+    photoView.image = image;
+    photoView.contentMode = UIViewContentModeScaleAspectFill;
     
-    [self addSubview:img];
+    [self.addedPhotos addObject:image];
+    [self addSubview:photoView];
 }
+
+-(NSArray *)photos
+{
+    HWLog(@"self.addedPhotos %@",self.addedPhotos);
+    return self.addedPhotos;
+}
+
 -(void)layoutSubviews
 {
     [super layoutSubviews];

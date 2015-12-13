@@ -123,7 +123,19 @@
 -(void)send
 {
     
-    [MBProgressHUD showMessage:@"正在发送"];
+    
+    if (self.photosView.photos.count) {
+        [self sendWithImage];
+    }else{
+        [self sendWithoutImage];
+    }
+    [self.textView endEditing:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+-(void)sendWithImage
+{
     //请求管理者
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -133,21 +145,38 @@
     parameters[@"access_token"] = account.access_token;
     parameters[@"status"] = self.textView.text;
     
+    //发送请求
+    [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        UIImage *image = [self.photosView.photos firstObject];
+        NSData *data = UIImageJPEGRepresentation(image, 0.5);
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpg" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        
+        [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        HWLog(@"%@",error);
+        [MBProgressHUD showSuccess:@"发送失败"];
+    }];
+}
+
+-(void)sendWithoutImage
+{
+    //请求管理者
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    //拼接请求参数
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    HWAccount *account = [HWAccountTool account];
+    parameters[@"access_token"] = account.access_token;
+    parameters[@"status"] = self.textView.text;
     
     //发送请求
     [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        HWLog(@"success");
-        [self dismissViewControllerAnimated:YES completion:nil];
-        [MBProgressHUD showMessage:@"发送成功"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUD];
-        });
+//        HWLog(@"success");
+        [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         HWLog(@"%@",error);
-        [MBProgressHUD showMessage:@"发送失败"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUD];
-        });
+        [MBProgressHUD showSuccess:@"发送失败"];
     }];
 }
 
@@ -208,5 +237,7 @@
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
     [self.photosView addPhoto:image];
+    
+//    NSArray *arr = [self.photosView.photos];
 }
 @end

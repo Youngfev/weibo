@@ -10,4 +10,5 @@
 
 @interface HWComposePhotosView : UIView
 -(void)addPhoto:(UIImage *)image;
+-(NSArray *)photos;
 @end
