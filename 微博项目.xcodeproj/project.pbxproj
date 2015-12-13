@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CC00C26F1C1A89EF00CB51D0 /* HWIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC00C26E1C1A89EF00CB51D0 /* HWIconView.m */; };
+		CC63B9551C1D522E0096D88B /* HWEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = CC63B9541C1D522E0096D88B /* HWEmotionKeyboard.m */; };
+		CC63B9581C1D52490096D88B /* HWEmotionTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC63B9571C1D52490096D88B /* HWEmotionTabbar.m */; };
+		CC63B95B1C1D526B0096D88B /* HWEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC63B95A1C1D526B0096D88B /* HWEmotionListView.m */; };
 		CC67627E1C15D56800049853 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC67625E1C15D56800049853 /* MKAnnotationView+WebCache.m */; };
 		CC67627F1C15D56800049853 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6762601C15D56800049853 /* NSData+ImageContentType.m */; };
 		CC6762801C15D56800049853 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6762621C15D56800049853 /* SDImageCache.m */; };
@@ -109,6 +112,12 @@
 /* Begin PBXFileReference section */
 		CC00C26D1C1A89EF00CB51D0 /* HWIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWIconView.h; sourceTree = "<group>"; };
 		CC00C26E1C1A89EF00CB51D0 /* HWIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWIconView.m; sourceTree = "<group>"; };
+		CC63B9531C1D522E0096D88B /* HWEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionKeyboard.h; sourceTree = "<group>"; };
+		CC63B9541C1D522E0096D88B /* HWEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionKeyboard.m; sourceTree = "<group>"; };
+		CC63B9561C1D52490096D88B /* HWEmotionTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionTabbar.h; sourceTree = "<group>"; };
+		CC63B9571C1D52490096D88B /* HWEmotionTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionTabbar.m; sourceTree = "<group>"; };
+		CC63B9591C1D526B0096D88B /* HWEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionListView.h; sourceTree = "<group>"; };
+		CC63B95A1C1D526B0096D88B /* HWEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionListView.m; sourceTree = "<group>"; };
 		CC67625D1C15D56800049853 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		CC67625E1C15D56800049853 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		CC67625F1C15D56800049853 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -717,6 +726,12 @@
 				CCEA3E901C1C3FB40074C757 /* HWComposeToolbar.m */,
 				CCEA3E921C1C6D0F0074C757 /* HWComposePhotosView.h */,
 				CCEA3E931C1C6D0F0074C757 /* HWComposePhotosView.m */,
+				CC63B9531C1D522E0096D88B /* HWEmotionKeyboard.h */,
+				CC63B9541C1D522E0096D88B /* HWEmotionKeyboard.m */,
+				CC63B9561C1D52490096D88B /* HWEmotionTabbar.h */,
+				CC63B9571C1D52490096D88B /* HWEmotionTabbar.m */,
+				CC63B9591C1D526B0096D88B /* HWEmotionListView.h */,
+				CC63B95A1C1D526B0096D88B /* HWEmotionListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -955,6 +970,7 @@
 				CCCF9A5F1C1985FF0001D07C /* NSString+Extension.m in Sources */,
 				CCFA48B41C16804600C8AA2A /* NSObject+MJClass.m in Sources */,
 				CCFA48B31C16804600C8AA2A /* MJPropertyType.m in Sources */,
+				CC63B9551C1D522E0096D88B /* HWEmotionKeyboard.m in Sources */,
 				CCCF9A591C191E550001D07C /* HWStatusToolbar.m in Sources */,
 				CC67627E1C15D56800049853 /* MKAnnotationView+WebCache.m in Sources */,
 				CCFA48B81C16804600C8AA2A /* NSString+MJExtension.m in Sources */,
@@ -964,6 +980,7 @@
 				CC6CE7461C1810DD009B7787 /* HWPhoto.m in Sources */,
 				CC6A330A1C12D2DD000E682F /* HWNavigationController.m in Sources */,
 				CC8A6B0A1C1B0229006D179E /* HWComposeController.m in Sources */,
+				CC63B9581C1D52490096D88B /* HWEmotionTabbar.m in Sources */,
 				CCFA48B01C16804600C8AA2A /* MJFoundation.m in Sources */,
 				CCA7A6421C15B046005517A1 /* HWTitleButton.m in Sources */,
 				CCA7A6261C15368F005517A1 /* AFHTTPSessionManager.m in Sources */,
@@ -999,6 +1016,7 @@
 				CC6A33001C12C4F5000E682F /* HWTabbarViewController.m in Sources */,
 				CC6A33011C12C4F5000E682F /* AppDelegate.m in Sources */,
 				CC6A33071C12CCFC000E682F /* UIBarButtonItem+Extension.m in Sources */,
+				CC63B95B1C1D526B0096D88B /* HWEmotionListView.m in Sources */,
 				CCA7A6371C157F53005517A1 /* MBProgressHUD+MJ.m in Sources */,
 				CCA7A6301C157370005517A1 /* HWAccount.m in Sources */,
 				CC6A32FF1C12C4F5000E682F /* UIView+HWExtension.m in Sources */,

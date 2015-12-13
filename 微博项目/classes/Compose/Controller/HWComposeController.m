@@ -14,13 +14,15 @@
 #import "HWComposeToolbar.h"
 #import "HWComposeToolbar.h"
 #import "HWComposePhotosView.h"
+#import "HWEmotionKeyboard.h"
 
 
 @interface HWComposeController ()<UITextViewDelegate,HWComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic,weak) HWTextView *textView;
 @property (nonatomic,weak) HWComposeToolbar *toolbar;
 @property (nonatomic,weak) HWComposePhotosView *photosView;
-
+@property (nonatomic,weak) HWEmotionKeyboard *emotionKeyboard;
+@property (nonatomic,assign) BOOL isSwitchingKeyboard;
 @end
 
 @implementation HWComposeController
@@ -88,6 +90,8 @@
 }
 -(void)keyboardWillChangeFrame:(NSNotification *)notification
 {
+    if (self.isSwitchingKeyboard) return;
+    
     NSDictionary *userInfo = notification.userInfo;
     NSTimeInterval interval = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:interval animations:^{
@@ -186,7 +190,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.textView endEditing:YES];
 }
@@ -197,7 +201,7 @@
             [self openCamera];
             break;
         case HWComposeToolbarTypeEmotion:
-            HWLog(@"TypeTrend");
+            [self switchKeyboard];
             break;
         case HWComposeToolbarTypeTrend:
             HWLog(@"TypeTrend");
@@ -214,6 +218,25 @@
     }
 }
 
+-(void)switchKeyboard
+{
+    if (self.textView.inputView == nil) {
+        HWEmotionKeyboard *emotionKeybaord = [[HWEmotionKeyboard alloc] init];
+        emotionKeybaord.width = self.view.width;
+        emotionKeybaord.height = 216;
+        self.textView.inputView = emotionKeybaord;
+    }else{
+        self.textView.inputView = nil;
+    }
+    self.isSwitchingKeyboard = YES;
+    
+    [self.textView endEditing:YES];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.textView becomeFirstResponder];
+        self.isSwitchingKeyboard = NO;
+    });
+}
 -(void)openCamera
 {
     [self openImagePicker:UIImagePickerControllerSourceTypeCamera];
@@ -230,7 +253,8 @@
     ipc.delegate = self;
     [self presentViewController:ipc animated:YES completion:nil];
 }
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     

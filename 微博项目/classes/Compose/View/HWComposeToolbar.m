@@ -50,7 +50,7 @@
     CGFloat btnW = self.width / count;
     CGFloat btnH = self.height;
     
-    for (NSInteger i = 0; i < count; i ++) {
+    for (NSUInteger i = 0; i < count; i ++) {
         UIButton *btn = self.subviews[i];
         
         btn.x = i * btnW;

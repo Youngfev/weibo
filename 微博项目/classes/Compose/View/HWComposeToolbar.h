@@ -13,7 +13,7 @@ typedef enum {
     HWComposeToolbarTypePicture,
     HWComposeToolbarTypeMention,
     HWComposeToolbarTypeTrend,
-    HWComposeToolbarTypeEmotion,
+    HWComposeToolbarTypeEmotion
     
 }HWComposeToolbarType;
 
