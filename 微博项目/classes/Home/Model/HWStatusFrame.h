@@ -11,13 +11,13 @@
 // 昵称字体
 #define HWStatusCellNameFont [UIFont systemFontOfSize:16]
 // 时间字体
-#define HWStatusCellTimeFont [UIFont systemFontOfSize:14]
+#define HWStatusCellTimeFont [UIFont systemFontOfSize:13]
 // 来源字体
 #define HWStatusCellSourceFont HWStatusCellTimeFont
 // 正文字体
-#define HWStatusCellContentFont [UIFont systemFontOfSize:15]
+#define HWStatusCellContentFont [UIFont systemFontOfSize:16]
 // 转发正文字体
-#define HWStatusCellRetweetContentFont [UIFont systemFontOfSize:14]
+#define HWStatusCellRetweetContentFont [UIFont systemFontOfSize:16]
 // cell的边框宽度
 #define HWStatusCellBorderW 10
 

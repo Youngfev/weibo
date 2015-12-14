@@ -46,6 +46,10 @@
 		CC6CE7431C17EE71009B7787 /* HWStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6CE7421C17EE71009B7787 /* HWStatusFrame.m */; };
 		CC6CE7461C1810DD009B7787 /* HWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6CE7451C1810DD009B7787 /* HWPhoto.m */; };
 		CC7BDEB61C1E6EB3009E59E1 /* HWEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7BDEB51C1E6EB3009E59E1 /* HWEmotion.m */; };
+		CC8177F01C1EE84D007645D6 /* HWEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8177EF1C1EE84D007645D6 /* HWEmotionPageView.m */; };
+		CC8177FD1C1EFDE9007645D6 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8177FC1C1EFDE9007645D6 /* NSString+Emoji.m */; };
+		CC8178001C1F0967007645D6 /* HWEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8177FF1C1F0967007645D6 /* HWEmotionPopView.m */; };
+		CC8178021C1F0992007645D6 /* HWEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8178011C1F0992007645D6 /* HWEmotionPopView.xib */; };
 		CC8A6B0A1C1B0229006D179E /* HWComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8A6B091C1B0229006D179E /* HWComposeController.m */; };
 		CC93ED271C17DFCB0018B6C8 /* HWStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC93ED261C17DFCB0018B6C8 /* HWStatusCell.m */; };
 		CCA7A6241C15368F005517A1 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA7A6121C15368F005517A1 /* AFHTTPRequestOperation.m */; };
@@ -189,6 +193,13 @@
 		CC6CE7451C1810DD009B7787 /* HWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWPhoto.m; sourceTree = "<group>"; };
 		CC7BDEB41C1E6EB3009E59E1 /* HWEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotion.h; sourceTree = "<group>"; };
 		CC7BDEB51C1E6EB3009E59E1 /* HWEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotion.m; sourceTree = "<group>"; };
+		CC8177EE1C1EE84D007645D6 /* HWEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionPageView.h; sourceTree = "<group>"; };
+		CC8177EF1C1EE84D007645D6 /* HWEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionPageView.m; sourceTree = "<group>"; };
+		CC8177FB1C1EFDE9007645D6 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		CC8177FC1C1EFDE9007645D6 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
+		CC8177FE1C1F0967007645D6 /* HWEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionPopView.h; sourceTree = "<group>"; };
+		CC8177FF1C1F0967007645D6 /* HWEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionPopView.m; sourceTree = "<group>"; };
+		CC8178011C1F0992007645D6 /* HWEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWEmotionPopView.xib; sourceTree = "<group>"; };
 		CC8A6B081C1B0229006D179E /* HWComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWComposeController.h; sourceTree = "<group>"; };
 		CC8A6B091C1B0229006D179E /* HWComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWComposeController.m; sourceTree = "<group>"; };
 		CC93ED251C17DFCB0018B6C8 /* HWStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusCell.h; sourceTree = "<group>"; };
@@ -491,6 +502,8 @@
 		CC6A32E31C12C4F5000E682F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				CC8177FB1C1EFDE9007645D6 /* NSString+Emoji.h */,
+				CC8177FC1C1EFDE9007645D6 /* NSString+Emoji.m */,
 				CCCF9A601C199F400001D07C /* NSDate+Extension.h */,
 				CCCF9A611C199F400001D07C /* NSDate+Extension.m */,
 				CC6A32E41C12C4F5000E682F /* UIView+HWExtension.h */,
@@ -748,6 +761,11 @@
 				CC63B9541C1D522E0096D88B /* HWEmotionKeyboard.m */,
 				CC63B9591C1D526B0096D88B /* HWEmotionListView.h */,
 				CC63B95A1C1D526B0096D88B /* HWEmotionListView.m */,
+				CC8177EE1C1EE84D007645D6 /* HWEmotionPageView.h */,
+				CC8177EF1C1EE84D007645D6 /* HWEmotionPageView.m */,
+				CC8177FE1C1F0967007645D6 /* HWEmotionPopView.h */,
+				CC8177FF1C1F0967007645D6 /* HWEmotionPopView.m */,
+				CC8178011C1F0992007645D6 /* HWEmotionPopView.xib */,
 				CC104C171C1D98AE00ADAC00 /* HWEmotionTabBar.h */,
 				CC104C181C1D98AE00ADAC00 /* HWEmotionTabBar.m */,
 				CC104C1A1C1D98DA00ADAC00 /* HWEmotionTabBarButton.h */,
@@ -954,6 +972,7 @@
 				CC39A0D61C1E608D00C3E8AC /* EmotionIcons in Resources */,
 				CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */,
 				CCFA48BD1C16AAE100C8AA2A /* loadMoreFooter.xib in Resources */,
+				CC8178021C1F0992007645D6 /* HWEmotionPopView.xib in Resources */,
 				CC6A330F1C12DE82000E682F /* HWTestViewController.xib in Resources */,
 				CCA7A6381C157F53005517A1 /* MBProgressHUD.bundle in Resources */,
 			);
@@ -985,6 +1004,7 @@
 				CC6CE7431C17EE71009B7787 /* HWStatusFrame.m in Sources */,
 				CC93ED271C17DFCB0018B6C8 /* HWStatusCell.m in Sources */,
 				CCFA48921C16794800C8AA2A /* HWUser.m in Sources */,
+				CC8178001C1F0967007645D6 /* HWEmotionPopView.m in Sources */,
 				CCCF9A621C199F400001D07C /* NSDate+Extension.m in Sources */,
 				CC6762861C15D56800049853 /* SDWebImagePrefetcher.m in Sources */,
 				CCEA3E911C1C3FB40074C757 /* HWComposeToolbar.m in Sources */,
@@ -996,6 +1016,7 @@
 				CCCF9A591C191E550001D07C /* HWStatusToolbar.m in Sources */,
 				CC67627E1C15D56800049853 /* MKAnnotationView+WebCache.m in Sources */,
 				CCFA48B81C16804600C8AA2A /* NSString+MJExtension.m in Sources */,
+				CC8177F01C1EE84D007645D6 /* HWEmotionPageView.m in Sources */,
 				CCFA48BB1C16AAC500C8AA2A /* HWLoadMoreFooter.m in Sources */,
 				CCA7A6291C15368F005517A1 /* AFURLConnectionOperation.m in Sources */,
 				CCCF9A6B1C19BB050001D07C /* HWStatusPhotoView.m in Sources */,
@@ -1015,6 +1036,7 @@
 				CC6762881C15D56800049853 /* UIImage+GIF.m in Sources */,
 				CCFA48951C167A5900C8AA2A /* HWStatus.m in Sources */,
 				CC6A33151C1331F6000E682F /* HWDropMenu.m in Sources */,
+				CC8177FD1C1EFDE9007645D6 /* NSString+Emoji.m in Sources */,
 				CC6762831C15D56800049853 /* SDWebImageDownloader.m in Sources */,
 				CCFA48AF1C16804600C8AA2A /* MJExtensionConst.m in Sources */,
 				CC6762811C15D56800049853 /* SDWebImageCompat.m in Sources */,

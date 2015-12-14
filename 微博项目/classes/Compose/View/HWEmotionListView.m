@@ -7,6 +7,7 @@
 //
 
 #import "HWEmotionListView.h"
+#import "HWEmotionPageView.h"
 
 #define HWEmotionListPageSize 20
 
@@ -23,7 +24,6 @@
 {
     if (self = [super initWithFrame:frame]) {
         UIScrollView *scrollView = [[UIScrollView alloc] init];
-        scrollView.backgroundColor = HWRandomColor;
         scrollView.pagingEnabled = YES;
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.showsVerticalScrollIndicator = NO;
@@ -32,9 +32,9 @@
         self.scrollView = scrollView;
         
         UIPageControl *pageControl = [[UIPageControl alloc] init];
-//        pageControl.backgroundColor = HWRandomColor;
-//        pageControl.currentPageIndicatorTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"comopse_keyboard_dot_normal"]];
-//        [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"pageImage"];
+        pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+        pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+//        [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"pageImage"];//不提供pageImage了？？
         pageControl.userInteractionEnabled = NO;
         [self addSubview:pageControl];
         self.pageControl = pageControl;
@@ -48,16 +48,23 @@
     _emotions = emotions;
     
     NSUInteger count = (emotions.count + HWEmotionListPageSize -1) / HWEmotionListPageSize;
-    
+//    HWLog(@"%zd",count);
     self.pageControl.numberOfPages = count;
-    
-    for (int i = 0; i < count; i++) {
-        UIView *pageView = [[UIView alloc] init];
-
+     NSRange range;
+    for (NSInteger i = 0; i < count; i++) {
+        HWEmotionPageView *pageView = [[HWEmotionPageView alloc] init];
+       
+        range.location = i * HWEmotionListPageSize;
+        NSUInteger left = emotions.count - range.location;
+        if (left >= HWEmotionListPageSize) {
+            range.length = HWEmotionListPageSize;
+        }else{
+            range.length = left;
+        }
+        pageView.emotions = [emotions subarrayWithRange:range];
         [self.scrollView addSubview:pageView];
     }
     
-
 }
 
 -(void)layoutSubviews
@@ -78,21 +85,19 @@
 
     for (int i = 0; i < count; i++) {
         UIView *pageView = self.scrollView.subviews[i];
-//        if ([pageView isKindOfClass:[UIImageView class]]) continue;
         pageView.height = self.scrollView.height;
         pageView.width = self.scrollView.width;
         pageView.x = i * pageView.width;
-        pageView.x = 0;
+        pageView.y = 0;
     }
     
-    CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
-    self.scrollView.contentSize = CGSizeMake(count * screenW, 0);
+    self.scrollView.contentSize = CGSizeMake(count * self.scrollView.width, 0);
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat page = scrollView.contentOffset.x / self.scrollView.width;
-    self.pageControl.currentPage = (int)(page + 0.5);
+    self.pageControl.currentPage = (NSInteger)(page + 0.5);
 }
 
 @end

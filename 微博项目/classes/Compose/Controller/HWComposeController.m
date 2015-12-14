@@ -33,7 +33,7 @@
         self.emotionKeyboard = [[HWEmotionKeyboard alloc] init];
         self.emotionKeyboard.width = self.view.width;
         self.emotionKeyboard.height = 224;
-//        self.emotionKeyboard.backgroundColor = [UIColor redColor];
+        self.emotionKeyboard.backgroundColor = [UIColor whiteColor];
     }
     return _emotionKeyboard;
 }

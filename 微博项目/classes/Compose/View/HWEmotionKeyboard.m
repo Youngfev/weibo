@@ -29,7 +29,6 @@
     if (_recentListView == nil) {
         _recentListView = [[HWEmotionListView alloc] init];
         
-        self.recentListView.backgroundColor = HWRandomColor;
     }
     return _recentListView;
 }
@@ -41,7 +40,6 @@
         NSArray *defaultEmotions = [HWEmotion mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
         
         self.defaultListView.emotions = defaultEmotions;
-        self.defaultListView.backgroundColor = HWRandomColor;
     }
     return _defaultListView;
 }
@@ -53,7 +51,6 @@
         NSArray *emojiEmotions = [HWEmotion mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
         
         self.emojiListView.emotions = emojiEmotions;
-        self.emojiListView.backgroundColor = HWRandomColor;
     }
     return _emojiListView;
 }
@@ -65,7 +62,6 @@
         NSArray *lxhEmotions = [HWEmotion mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
         
         self.lxhListView.emotions = lxhEmotions;
-        self.lxhListView.backgroundColor = HWRandomColor;
     }
     return _lxhListView;
 }
@@ -79,12 +75,6 @@
         [self addSubview:tabBar];
         self.tabBar = tabBar;
         
-//        HWEmotionListView *showingListView = [[HWEmotionListView alloc] init];
-//        showingListView.backgroundColor = HWRandomColor;
-//        [self addSubview:showingListView];
-//        self.showingListView = showingListView;
-        
-
     }
     return self;
     
@@ -103,8 +93,6 @@
     self.showingListView.width = self.width;
     self.showingListView.height = self.tabBar.y;
     
-//    UIView *childView = [self.showingListView.subviews lastObject];
-//    childView.frame = self.showingListView.bounds;
 }
 -(void)emotionTabBar:(HWEmotionTabBar *)tabBar didSelectButton:(HWEmotionTabBarButtonType)buttonType
 {
