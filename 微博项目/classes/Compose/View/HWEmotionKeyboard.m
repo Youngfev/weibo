@@ -10,28 +10,30 @@
 #import "HWEmotionListView.h"
 #import "HWEmotionTabBar.h"
 
-@interface HWEmotionKeyboard ()
+@interface HWEmotionKeyboard ()<HWEmotionTabBarDelegate>
 
 @property (nonatomic,weak) HWEmotionListView *listView;
-@property (nonatomic,weak) HWEmotionTabBar *tabbar;
+@property (nonatomic,weak) HWEmotionTabBar *tabBar;
 
 @end
 
 @implementation HWEmotionKeyboard
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        HWEmotionTabBar *tabBar = [[HWEmotionTabBar alloc] init];
+//        tabBar.backgroundColor = HWRandomColor;
+        [self addSubview:tabBar];
+        tabBar.delegate = self;
+        self.tabBar = tabBar;
+        
         HWEmotionListView *listView = [[HWEmotionListView alloc] init];
+//        listView.backgroundColor = HWRandomColor;
         [self addSubview:listView];
-        listView.backgroundColor = HWRandomColor;
         self.listView = listView;
         
-        HWEmotionTabBar *tabbar = [[HWEmotionTabBar alloc] init];
-        [self addSubview:tabbar];
-//        tabbar.backgroundColor = HWRandomColor;
-//        tabbar.delegate = self;
-        self.tabbar = tabbar;
+
     }
     return self;
     
@@ -41,34 +43,35 @@
 {
     [super layoutSubviews];
     
-    self.tabbar.width = self.width;
-    self.tabbar.height = 37;
-    self.tabbar.y = 0;
-    self.tabbar.y = self.height - self.tabbar.height;
+    self.tabBar.width = self.width;
+    self.tabBar.height = 37;
+    self.tabBar.x = 0;
+    self.tabBar.y = self.height - self.tabBar.height;
+//    HWLog(@"%f",self.tabBar.y);
     
     self.listView.x = self.listView.y = 0;
-    self.width = self.width;
-    self.height = self.tabbar.y;
+    self.listView.width = self.width;
+    self.listView.height = self.tabBar.y;
 }
-//-(void)emotionTabbar:(HWEmotionTabbar *)tabBar didSelectButton:(HWEmotionTabbarButtonType)buttonType
-//{
-//    switch (buttonType) {
-//        case HWEmotionTabbarButtonTypeRecent: // 最近
-//            HWLog(@"最近");
-//            break;
-//            
-//        case HWEmotionTabbarButtonTypeDefault: // 默认
-//            HWLog(@"默认");
-//            break;
-//            
-//        case HWEmotionTabbarButtonTypeEmoji: // Emoji
-//            HWLog(@"Emoji");
-//            break;
-//            
-//        case HWEmotionTabbarButtonTypeLxh: // Lxh
-//            HWLog(@"Lxh");
-//            break;
-//    }
-//}
+-(void)emotionTabBar:(HWEmotionTabBar *)tabBar didSelectButton:(HWEmotionTabBarButtonType)buttonType
+{
+    switch (buttonType) {
+        case HWEmotionTabBarButtonTypeRecent: // 最近
+            HWLog(@"最近");
+            break;
+            
+        case HWEmotionTabBarButtonTypeDefault: // 默认
+            HWLog(@"默认");
+            break;
+            
+        case HWEmotionTabBarButtonTypeEmoji: // Emoji
+            HWLog(@"Emoji");
+            break;
+            
+        case HWEmotionTabBarButtonTypeLxh: // Lxh
+            HWLog(@"Lxh");
+            break;
+    }
+}
 
 @end

@@ -32,7 +32,8 @@
     if (!_emotionKeyboard) {
         self.emotionKeyboard = [[HWEmotionKeyboard alloc] init];
         self.emotionKeyboard.width = self.view.width;
-        self.emotionKeyboard.height = 216;
+        self.emotionKeyboard.height = 224;
+//        self.emotionKeyboard.backgroundColor = [UIColor redColor];
     }
     return _emotionKeyboard;
 }
@@ -89,7 +90,7 @@
     [self.view addSubview:textView];
     self.textView = textView;
     
-    self.textView.font = [UIFont systemFontOfSize:16];
+    self.textView.font = [UIFont systemFontOfSize:15];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
@@ -100,13 +101,14 @@
 }
 -(void)keyboardWillChangeFrame:(NSNotification *)notification
 {
-    if (self.isSwitchingKeyboard) return;
+//    if (self.isSwitchingKeyboard) return;
     
     NSDictionary *userInfo = notification.userInfo;
     NSTimeInterval interval = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:interval animations:^{
         CGRect keyboardF = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
         self.toolbar.y = keyboardF.origin.y - self.toolbar.height;
+//        HWLog(@"%f",keyboardF.origin.y);
     }];
 }
 
@@ -235,7 +237,7 @@
         self.toolbar.showKeyboardButton = YES;
     }else{
         self.textView.inputView = nil;
-        self.toolbar.showKeyboardButton = YES;
+        self.toolbar.showKeyboardButton = NO;
     }
     self.isSwitchingKeyboard = YES;
     

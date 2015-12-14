@@ -9,16 +9,24 @@
 #import "HWEmotionTabBarButton.h"
 
 @implementation HWEmotionTabBarButton
-- (instancetype)initWithFrame:(CGRect)frame
+
+- (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        // 设置文字颜色
+
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateDisabled];
-        // 设置字体
+
+        
         self.titleLabel.font = [UIFont systemFontOfSize:13];
     }
     return self;
     
 }
+
+-(void)setHighlighted:(BOOL)highlighted
+{
+    
+}
+
 @end

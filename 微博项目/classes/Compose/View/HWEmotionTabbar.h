@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWEmotionTabBar : UIView
+typedef enum {
+    HWEmotionTabBarButtonTypeRecent, // 最近
+    HWEmotionTabBarButtonTypeDefault, // 默认
+    HWEmotionTabBarButtonTypeEmoji, // emoji
+    HWEmotionTabBarButtonTypeLxh, // 浪小花
+} HWEmotionTabBarButtonType;
 
+@class HWEmotionTabBar;
+
+@protocol HWEmotionTabBarDelegate <NSObject>
+
+@optional
+- (void)emotionTabBar:(HWEmotionTabBar *)tabBar didSelectButton:(HWEmotionTabBarButtonType)buttonType;
+@end
+
+@interface HWEmotionTabBar : UIView
+@property (nonatomic, weak) id<HWEmotionTabBarDelegate> delegate;
 @end
