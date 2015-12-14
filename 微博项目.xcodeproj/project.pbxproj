@@ -10,6 +10,7 @@
 		CC00C26F1C1A89EF00CB51D0 /* HWIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC00C26E1C1A89EF00CB51D0 /* HWIconView.m */; };
 		CC104C191C1D98AE00ADAC00 /* HWEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC104C181C1D98AE00ADAC00 /* HWEmotionTabBar.m */; };
 		CC104C1C1C1D98DA00ADAC00 /* HWEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC104C1B1C1D98DA00ADAC00 /* HWEmotionTabBarButton.m */; };
+		CC39A0D61C1E608D00C3E8AC /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = CC39A0D51C1E608D00C3E8AC /* EmotionIcons */; };
 		CC63B9551C1D522E0096D88B /* HWEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = CC63B9541C1D522E0096D88B /* HWEmotionKeyboard.m */; };
 		CC63B95B1C1D526B0096D88B /* HWEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC63B95A1C1D526B0096D88B /* HWEmotionListView.m */; };
 		CC67627E1C15D56800049853 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC67625E1C15D56800049853 /* MKAnnotationView+WebCache.m */; };
@@ -44,6 +45,7 @@
 		CC6A33151C1331F6000E682F /* HWDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A33141C1331F6000E682F /* HWDropMenu.m */; };
 		CC6CE7431C17EE71009B7787 /* HWStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6CE7421C17EE71009B7787 /* HWStatusFrame.m */; };
 		CC6CE7461C1810DD009B7787 /* HWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6CE7451C1810DD009B7787 /* HWPhoto.m */; };
+		CC7BDEB61C1E6EB3009E59E1 /* HWEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7BDEB51C1E6EB3009E59E1 /* HWEmotion.m */; };
 		CC8A6B0A1C1B0229006D179E /* HWComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8A6B091C1B0229006D179E /* HWComposeController.m */; };
 		CC93ED271C17DFCB0018B6C8 /* HWStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC93ED261C17DFCB0018B6C8 /* HWStatusCell.m */; };
 		CCA7A6241C15368F005517A1 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA7A6121C15368F005517A1 /* AFHTTPRequestOperation.m */; };
@@ -117,6 +119,7 @@
 		CC104C181C1D98AE00ADAC00 /* HWEmotionTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionTabBar.m; sourceTree = "<group>"; };
 		CC104C1A1C1D98DA00ADAC00 /* HWEmotionTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionTabBarButton.h; sourceTree = "<group>"; };
 		CC104C1B1C1D98DA00ADAC00 /* HWEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionTabBarButton.m; sourceTree = "<group>"; };
+		CC39A0D51C1E608D00C3E8AC /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		CC63B9531C1D522E0096D88B /* HWEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionKeyboard.h; sourceTree = "<group>"; };
 		CC63B9541C1D522E0096D88B /* HWEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionKeyboard.m; sourceTree = "<group>"; };
 		CC63B9591C1D526B0096D88B /* HWEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionListView.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 		CC6CE7421C17EE71009B7787 /* HWStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStatusFrame.m; sourceTree = "<group>"; };
 		CC6CE7441C1810DD009B7787 /* HWPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWPhoto.h; sourceTree = "<group>"; };
 		CC6CE7451C1810DD009B7787 /* HWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWPhoto.m; sourceTree = "<group>"; };
+		CC7BDEB41C1E6EB3009E59E1 /* HWEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotion.h; sourceTree = "<group>"; };
+		CC7BDEB51C1E6EB3009E59E1 /* HWEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotion.m; sourceTree = "<group>"; };
 		CC8A6B081C1B0229006D179E /* HWComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWComposeController.h; sourceTree = "<group>"; };
 		CC8A6B091C1B0229006D179E /* HWComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWComposeController.m; sourceTree = "<group>"; };
 		CC93ED251C17DFCB0018B6C8 /* HWStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStatusCell.h; sourceTree = "<group>"; };
@@ -311,6 +316,7 @@
 		CC00C2701C1AA33500CB51D0 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				CC7BDEB31C1E6E5D009E59E1 /* Model */,
 				CCEA3E8E1C1C3F9B0074C757 /* View */,
 				CC00C2711C1AA33500CB51D0 /* Controller */,
 			);
@@ -630,6 +636,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CC7BDEB31C1E6E5D009E59E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC7BDEB41C1E6EB3009E59E1 /* HWEmotion.h */,
+				CC7BDEB51C1E6EB3009E59E1 /* HWEmotion.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CCA7A6101C15368F005517A1 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,6 +788,7 @@
 		CCFA0F851C11ADCE00EAF430 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CC39A0D51C1E608D00C3E8AC /* EmotionIcons */,
 				CCFA0F961C11ADCE00EAF430 /* Info.plist */,
 				CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */,
 				CCFA0FB81C11AEEC00EAF430 /* PrefixHeader.pch */,
@@ -935,6 +951,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC39A0D61C1E608D00C3E8AC /* EmotionIcons in Resources */,
 				CCFA0F921C11ADCE00EAF430 /* Assets.xcassets in Resources */,
 				CCFA48BD1C16AAE100C8AA2A /* loadMoreFooter.xib in Resources */,
 				CC6A330F1C12DE82000E682F /* HWTestViewController.xib in Resources */,
@@ -986,6 +1003,7 @@
 				CC6A330A1C12D2DD000E682F /* HWNavigationController.m in Sources */,
 				CC8A6B0A1C1B0229006D179E /* HWComposeController.m in Sources */,
 				CCFA48B01C16804600C8AA2A /* MJFoundation.m in Sources */,
+				CC7BDEB61C1E6EB3009E59E1 /* HWEmotion.m in Sources */,
 				CCA7A6421C15B046005517A1 /* HWTitleButton.m in Sources */,
 				CCA7A6261C15368F005517A1 /* AFHTTPSessionManager.m in Sources */,
 				CC6762891C15D56800049853 /* UIImage+MultiFormat.m in Sources */,

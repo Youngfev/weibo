@@ -37,10 +37,10 @@
     HWEmotionTabBarButton *btn = [[HWEmotionTabBarButton alloc] init];
     
     [btn setTitle:title forState:UIControlStateNormal];
-    if (buttonType == HWEmotionTabBarButtonTypeDefault) {
-        
-        [self btnClick:btn];
-    }
+//    if (buttonType == HWEmotionTabBarButtonTypeDefault) {
+//        
+//        [self btnClick:btn];
+//    }
     
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
     
@@ -75,6 +75,14 @@
         btn.height = btnH;
     }
 }
+
+-(void)setDelegate:(id<HWEmotionTabBarDelegate>)delegate
+{
+    _delegate = delegate;
+    
+    [self btnClick:(HWEmotionTabBarButton *)[self viewWithTag:HWEmotionTabBarButtonTypeDefault]];
+}
+
 -(void)btnClick:(HWEmotionTabBarButton *)btn
 {
     self.selectedBtn.enabled = YES;
@@ -82,60 +90,8 @@
     self.selectedBtn = btn;
     // 通知代理
     if ([self.delegate respondsToSelector:@selector(emotionTabBar:didSelectButton:)]) {
-        [self.delegate emotionTabBar:self didSelectButton:btn.tag];
+        [self.delegate emotionTabBar:self didSelectButton:(HWEmotionTabBarButtonType)btn.tag];
     }
 }
-//
-///**
-// *  创建一个按钮
-// *
-// *  @param title 按钮文字
-// */
-//- (HWEmotionTabBarButton *)setupBtn:(NSString *)title buttonType:(HWEmotionTabBarButtonType)buttonType
-//{
-//    // 创建按钮
-//    HWEmotionTabBarButton *btn = [[HWEmotionTabBarButton alloc] init];
-//
-//    btn.tag = buttonType;
-//    [btn setTitle:title forState:UIControlStateNormal];
-//    [self addSubview:btn];
-//    
-//    // 设置背景图片
-//    NSString *image = @"compose_emotion_table_mid_normal";
-//    NSString *selectImage = @"compose_emotion_table_mid_selected";
-//    if (self.subviews.count == 1) {
-//        image = @"compose_emotion_table_left_normal";
-//        selectImage = @"compose_emotion_table_left_selected";
-//    } else if (self.subviews.count == 4) {
-//        image = @"compose_emotion_table_right_normal";
-//        selectImage = @"compose_emotion_table_right_selected";
-//    }
-//    
-//    [btn setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
-//    [btn setBackgroundImage:[UIImage imageNamed:selectImage] forState:UIControlStateDisabled];
-//    
-//    return btn;
-//}
-//
-//- (void)layoutSubviews
-//{
-//    [super layoutSubviews];
-//    
-//}
-//
-///**
-// *  按钮点击
-// */
-//- (void)click:(HWEmotionTabBarButton *)btn
-//{
-//    self.selectedBtn.enabled = YES;
-//    btn.enabled = NO;
-//    self.selectedBtn = btn;
-//    
-//    // 通知代理
-//    if ([self.delegate respondsToSelector:@selector(emotionTabBar:didSelectButton:)]) {
-//        [self.delegate emotionTabBar:self didSelectButton:btn.tag];
-//    }
-//}
-//
+
 @end

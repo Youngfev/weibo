@@ -87,15 +87,20 @@
 {
     _source = source;
     
+    if (([source isEqualToString: @""])) return ;
+    
     NSRange range;
     
-    range.location = [source rangeOfString:@">"].location + 1;
+    range.location = [source rangeOfString:@"\">"].location + 2;
+//    HWLog(@"range.location %ld",range.location);
     
     NSUInteger index = [source rangeOfString:@"</"].location;
+//    HWLog(@"index %ld",index);
   
     range.length = index - range.location;
+//    HWLog(@"range.length %ld",range.length);
+//    HWLog(@"source %@",source);
 
-    
     _source = [NSString stringWithFormat:@"来自 %@",[source substringWithRange:range]];
 }
 
