@@ -14,7 +14,7 @@
 
 @interface HWEmotionKeyboard ()<HWEmotionTabBarDelegate>
 
-@property (nonatomic,weak) HWEmotionListView *listView;
+@property (nonatomic,weak) HWEmotionListView *showingListView;
 @property (nonatomic,strong) HWEmotionListView *recentListView;
 @property (nonatomic,strong) HWEmotionListView *defaultListView;
 @property (nonatomic,strong) HWEmotionListView *emojiListView;
@@ -79,10 +79,10 @@
         [self addSubview:tabBar];
         self.tabBar = tabBar;
         
-//        HWEmotionListView *listView = [[HWEmotionListView alloc] init];
-//        listView.backgroundColor = HWRandomColor;
-//        [self addSubview:listView];
-//        self.listView = listView;
+//        HWEmotionListView *showingListView = [[HWEmotionListView alloc] init];
+//        showingListView.backgroundColor = HWRandomColor;
+//        [self addSubview:showingListView];
+//        self.showingListView = showingListView;
         
 
     }
@@ -99,18 +99,18 @@
     self.tabBar.x = 0;
     self.tabBar.y = self.height - self.tabBar.height;
     
-    self.listView.x = self.listView.y = 0;
-    self.listView.width = self.width;
-    self.listView.height = self.tabBar.y;
+    self.showingListView.x = self.showingListView.y = 0;
+    self.showingListView.width = self.width;
+    self.showingListView.height = self.tabBar.y;
     
-//    UIView *childView = [self.listView.subviews lastObject];
-//    childView.frame = self.listView.bounds;
+//    UIView *childView = [self.showingListView.subviews lastObject];
+//    childView.frame = self.showingListView.bounds;
 }
 -(void)emotionTabBar:(HWEmotionTabBar *)tabBar didSelectButton:(HWEmotionTabBarButtonType)buttonType
 {
     
-//    [self.listView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [self.listView removeFromSuperview];
+//    [self.showingListView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.showingListView removeFromSuperview];
     
     switch (buttonType) {
         case HWEmotionTabBarButtonTypeRecent: // 最近
@@ -138,7 +138,7 @@
             break;
         }
     }
-    self.listView = [self.subviews lastObject];
+    self.showingListView = [self.subviews lastObject];
     [self setNeedsLayout];
 }
 
