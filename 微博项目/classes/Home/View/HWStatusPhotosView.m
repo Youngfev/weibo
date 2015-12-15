@@ -11,7 +11,7 @@
 
 #import "HWStatusPhotoView.h"
 
-#define HWStatusPhotoWH 70
+#define HWStatusPhotoWH 80
 #define HWStatusPhotoMargin 10
 #define HWStatusPhotoMaxCol(count) ((count==4)?2:3)
 

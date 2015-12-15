@@ -33,7 +33,7 @@
     if (!_emotionKeyboard) {
         self.emotionKeyboard = [[HWEmotionKeyboard alloc] init];
         self.emotionKeyboard.width = self.view.width;
-        self.emotionKeyboard.height = 224;
+        self.emotionKeyboard.height = 216;
         self.emotionKeyboard.backgroundColor = [UIColor whiteColor];
     }
     return _emotionKeyboard;
@@ -119,7 +119,7 @@
 }
 -(void)keyboardWillChangeFrame:(NSNotification *)notification
 {
-//    if (self.isSwitchingKeyboard) return;
+    if (self.isSwitchingKeyboard) return;
     
     NSDictionary *userInfo = notification.userInfo;
     NSTimeInterval interval = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -141,7 +141,7 @@
     
     UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     //    titleView.backgroundColor = [UIColor redColor];
-    titleView.textAlignment = UITextAlignmentCenter;
+    titleView.textAlignment = NSTextAlignmentCenter;
     titleView.numberOfLines = 0;
     
     NSString *str = [NSString stringWithFormat:@"发微博\n%@",[HWAccountTool account].name];
@@ -202,7 +202,7 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     HWAccount *account = [HWAccountTool account];
     parameters[@"access_token"] = account.access_token;
-    parameters[@"status"] = self.textView.text;
+    parameters[@"status"] = self.textView.fullText;
     
     //发送请求
     [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
@@ -261,9 +261,9 @@
     
     [self.textView endEditing:YES];
     
+    self.isSwitchingKeyboard = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.textView becomeFirstResponder];
-        self.isSwitchingKeyboard = NO;
     });
 }
 -(void)openCamera

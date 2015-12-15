@@ -8,6 +8,8 @@
 
 #import "HWEmotionTextView.h"
 #import "HWEmotion.h"
+#import "HWEmotionAttachment.h"
+
 
 @implementation HWEmotionTextView
 
@@ -22,10 +24,11 @@
         [attributedText appendAttributedString:self.attributedText];
         
         //加载图片
-        NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+        HWEmotionAttachment *attch = [[HWEmotionAttachment alloc] init];
+        attch.emotion = emotion;
         CGFloat attchWH = self.font.lineHeight;
         attch.bounds = CGRectMake(0, -4, attchWH, attchWH);
-        attch.image = [UIImage imageNamed:emotion.png];
+//        attch.image = [UIImage imageNamed:emotion.png];
         NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:attch];
         
         //拼接新的图片
@@ -38,6 +41,25 @@
         [attributedText addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attributedText.length)];
         self.attributedText = attributedText;
     }
+}
+
+-(NSString *)fullText
+{
+    NSMutableString *fullText = [NSMutableString string];
+    
+    [self.attributedText enumerateAttributesInRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
+        
+        HWLog(@"%@",attrs);
+        HWEmotionAttachment *attach = attrs[@"NSAttachment"];
+        
+        if (attach) {
+            [fullText appendString:attach.emotion.chs];
+        }else{
+            NSAttributedString *str = [self.attributedText attributedSubstringFromRange:range];
+            [fullText appendString:str.string];
+        }
+    }];
+    return fullText;
 }
 
 @end

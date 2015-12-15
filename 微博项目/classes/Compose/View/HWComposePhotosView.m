@@ -55,7 +55,7 @@
     
     NSUInteger photosCount = self.subviews.count;
     NSUInteger maxCol = 4;
-    CGFloat imageHW = 70;
+    CGFloat imageHW = 80;
     for (NSUInteger i = 0; i < photosCount; i ++) {
         UIImageView *photoView = self.subviews[i];
         

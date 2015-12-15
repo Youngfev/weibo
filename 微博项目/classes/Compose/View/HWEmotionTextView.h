@@ -13,4 +13,5 @@
 
 -(void)insertEmotion:(HWEmotion *)emotion;
 
+-(NSString *)fullText;
 @end
