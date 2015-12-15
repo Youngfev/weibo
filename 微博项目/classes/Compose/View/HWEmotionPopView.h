@@ -10,4 +10,5 @@
 
 @interface HWEmotionPopView : UIView
 +(instancetype)popView;
+@property (weak, nonatomic) IBOutlet UIButton *popButton;
 @end

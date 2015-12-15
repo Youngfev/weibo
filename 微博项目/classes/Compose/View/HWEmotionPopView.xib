@@ -14,14 +14,16 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emoticon_keyboard_magnifier" translatesAutoresizingMaskIntoConstraints="NO" id="djL-kU-UXU">
                     <rect key="frame" x="0.0" y="0.0" width="64" height="91"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6de-5m-cIC">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6de-5m-cIC">
                     <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                    <state key="normal" title="Button"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="popButton" destination="6de-5m-cIC" id="Mxf-rL-iB1"/>
+            </connections>
             <point key="canvasLocation" x="387" y="350.5"/>
         </view>
     </objects>

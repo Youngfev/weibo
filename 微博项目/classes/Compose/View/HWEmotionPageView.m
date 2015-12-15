@@ -53,7 +53,7 @@
         }else{
             [btn setImage:[UIImage imageNamed:emotion.png] forState:UIControlStateNormal];
         }
-        
+        btn.adjustsImageWhenHighlighted = NO;
         [self addSubview:btn];
         
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -62,7 +62,17 @@
 
 -(void)btnClick:(UIButton *)btn
 {
-//    HWEmotion *eçmotion = self.emotions[btn.tag];
+    HWEmotion *emotion = self.emotions[btn.tag];
+    
+    if (emotion.code) {
+        //emoji转码
+        [self.popView.popButton setTitle:emotion.code.emoji forState:UIControlStateNormal];
+        self.popView.popButton.titleLabel.font = [UIFont systemFontOfSize:32];
+    }else{
+        [self.popView.popButton setImage:[UIImage imageNamed:emotion.png] forState:UIControlStateNormal];
+    }
+    
+    btn.adjustsImageWhenHighlighted = NO;
     UIWindow *window = [[UIApplication sharedApplication].windows lastObject];//获得最上面的window
 
     CGRect btnFrame = [btn convertRect:btn.bounds toView:nil];
@@ -70,6 +80,10 @@
     [window addSubview:self.popView];
     self.popView.y = CGRectGetMidY(btnFrame) - self.popView.height;
     self.popView.centerX = CGRectGetMidX(btnFrame);
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.popView removeFromSuperview];
+    });
 }
 
 -(void)layoutSubviews

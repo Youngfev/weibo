@@ -8,6 +8,12 @@
 
 #import "HWEmotionPopView.h"
 
+//@interface HWEmotionPopView ()
+//
+//
+//
+//@end
+
 @implementation HWEmotionPopView
 
 +(instancetype)popView

@@ -87,6 +87,8 @@
     textView.frame = self.view.bounds;
     textView.placeholder = @"分享新鲜事...";
     
+    
+    
     [self.view addSubview:textView];
     self.textView = textView;
     
