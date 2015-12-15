@@ -46,6 +46,7 @@
 		CC6CE7431C17EE71009B7787 /* HWStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6CE7421C17EE71009B7787 /* HWStatusFrame.m */; };
 		CC6CE7461C1810DD009B7787 /* HWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6CE7451C1810DD009B7787 /* HWPhoto.m */; };
 		CC7BDEB61C1E6EB3009E59E1 /* HWEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7BDEB51C1E6EB3009E59E1 /* HWEmotion.m */; };
+		CC80FE4E1C1FF37D00B50238 /* HWEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC80FE4D1C1FF37D00B50238 /* HWEmotionTextView.m */; };
 		CC8177F01C1EE84D007645D6 /* HWEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8177EF1C1EE84D007645D6 /* HWEmotionPageView.m */; };
 		CC8177FD1C1EFDE9007645D6 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8177FC1C1EFDE9007645D6 /* NSString+Emoji.m */; };
 		CC8178001C1F0967007645D6 /* HWEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8177FF1C1F0967007645D6 /* HWEmotionPopView.m */; };
@@ -193,6 +194,8 @@
 		CC6CE7451C1810DD009B7787 /* HWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWPhoto.m; sourceTree = "<group>"; };
 		CC7BDEB41C1E6EB3009E59E1 /* HWEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotion.h; sourceTree = "<group>"; };
 		CC7BDEB51C1E6EB3009E59E1 /* HWEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotion.m; sourceTree = "<group>"; };
+		CC80FE4C1C1FF37D00B50238 /* HWEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionTextView.h; sourceTree = "<group>"; };
+		CC80FE4D1C1FF37D00B50238 /* HWEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionTextView.m; sourceTree = "<group>"; };
 		CC8177EE1C1EE84D007645D6 /* HWEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionPageView.h; sourceTree = "<group>"; };
 		CC8177EF1C1EE84D007645D6 /* HWEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionPageView.m; sourceTree = "<group>"; };
 		CC8177FB1C1EFDE9007645D6 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
@@ -770,6 +773,8 @@
 				CC104C181C1D98AE00ADAC00 /* HWEmotionTabBar.m */,
 				CC104C1A1C1D98DA00ADAC00 /* HWEmotionTabBarButton.h */,
 				CC104C1B1C1D98DA00ADAC00 /* HWEmotionTabBarButton.m */,
+				CC80FE4C1C1FF37D00B50238 /* HWEmotionTextView.h */,
+				CC80FE4D1C1FF37D00B50238 /* HWEmotionTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1006,6 +1011,7 @@
 				CCFA48921C16794800C8AA2A /* HWUser.m in Sources */,
 				CC8178001C1F0967007645D6 /* HWEmotionPopView.m in Sources */,
 				CCCF9A621C199F400001D07C /* NSDate+Extension.m in Sources */,
+				CC80FE4E1C1FF37D00B50238 /* HWEmotionTextView.m in Sources */,
 				CC6762861C15D56800049853 /* SDWebImagePrefetcher.m in Sources */,
 				CCEA3E911C1C3FB40074C757 /* HWComposeToolbar.m in Sources */,
 				CC67628D1C15D56800049853 /* UIView+WebCacheOperation.m in Sources */,

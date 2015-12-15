@@ -15,6 +15,9 @@
 
 #define HWRandomColor HWColor(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
 
+#define HWEmotionButtonNotificationName @"EmotionButtonNotificationName"
+#define HWDidSelectEmotionButton @"DidSelectEmotionButton"
+
 #import "UIView+HWExtension.h"
 #import "UIBarButtonItem+Extension.h"
 #import "NSDate+Extension.h"

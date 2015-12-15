@@ -8,17 +8,18 @@
 
 #import "HWComposeController.h"
 #import "HWAccountTool.h"
-#import "HWTextView.h"
+#import "HWEmotionTextView.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
 #import "HWComposeToolbar.h"
 #import "HWComposeToolbar.h"
 #import "HWComposePhotosView.h"
 #import "HWEmotionKeyboard.h"
+#import "HWEmotion.h"
 
 
 @interface HWComposeController ()<UITextViewDelegate,HWComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-@property (nonatomic,weak) HWTextView *textView;
+@property (nonatomic,weak) HWEmotionTextView *textView;
 @property (nonatomic,weak) HWComposeToolbar *toolbar;
 @property (nonatomic,weak) HWComposePhotosView *photosView;
 @property (nonatomic,strong) HWEmotionKeyboard *emotionKeyboard;//strong
@@ -81,20 +82,35 @@
 
 -(void)setUpTextView
 {
-    HWTextView *textView = [[HWTextView alloc] init];
+    HWEmotionTextView *textView = [[HWEmotionTextView alloc] init];
     textView.alwaysBounceVertical = YES;
     textView.delegate = self;
     textView.frame = self.view.bounds;
     textView.placeholder = @"分享新鲜事...";
     
-    
-    
     [self.view addSubview:textView];
     self.textView = textView;
     
-    self.textView.font = [UIFont systemFontOfSize:15];
+    self.textView.font = [UIFont systemFontOfSize:17];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelect:) name:HWEmotionButtonNotificationName object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidDelegate) name:@"delegateEmotionNotification" object:nil];
+}
+
+-(void)emotionDidDelegate
+{
+    [self.textView deleteBackward];
+}
+
+-(void)emotionDidSelect:(NSNotification *)notification
+{
+    HWEmotion *emotion = notification.userInfo[HWDidSelectEmotionButton];
+    
+    [self.textView insertEmotion:emotion];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated

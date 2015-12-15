@@ -45,7 +45,7 @@
 
 -(NSArray *)photos
 {
-    HWLog(@"self.addedPhotos %@",self.addedPhotos);
+//    HWLog(@"self.addedPhotos %@",self.addedPhotos);
     return self.addedPhotos;
 }
 

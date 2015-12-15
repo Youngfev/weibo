@@ -325,7 +325,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	// Fade in
 	if (animated) {
 		[UIView beginAnimations:nil context:NULL];
-		[UIView setAnimationDuration:0.30];
+		[UIView setAnimationDuration:0.25];
 		self.alpha = 1.0f;
 		if (animationType == MBProgressHUDAnimationZoomIn || animationType == MBProgressHUDAnimationZoomOut) {
 			self.transform = rotationTransform;
