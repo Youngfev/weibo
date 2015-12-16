@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HWEmotion : NSObject
+@interface HWEmotion : NSObject<NSCoding>
 @property (nonatomic,copy) NSString *chs;
 @property (nonatomic,copy) NSString *png;
 @property (nonatomic,copy) NSString *code;

@@ -100,6 +100,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidDelegate) name:@"delegateEmotionNotification" object:nil];
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 -(void)emotionDidDelegate
 {
     [self.textView deleteBackward];
@@ -177,7 +181,7 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     HWAccount *account = [HWAccountTool account];
     parameters[@"access_token"] = account.access_token;
-    parameters[@"status"] = self.textView.text;
+    parameters[@"status"] = self.textView.fullText;
     
     //发送请求
     [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {

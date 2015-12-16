@@ -35,11 +35,13 @@
         //        [attributedText appendAttributedString:imageStr];
         //获得光标的位置
         NSUInteger loc = self.selectedRange.location;
-        [attributedText insertAttributedString:imageStr atIndex:loc];
+//        [attributedText insertAttributedString:imageStr atIndex:loc];
+        [attributedText replaceCharactersInRange:self.selectedRange withAttributedString:imageStr];
         
-        self.selectedRange = NSMakeRange(loc + 1, 0);
         [attributedText addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attributedText.length)];
         self.attributedText = attributedText;
+        
+        self.selectedRange = NSMakeRange(loc + 1, 0);
     }
 }
 
@@ -49,7 +51,7 @@
     
     [self.attributedText enumerateAttributesInRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
         
-        HWLog(@"%@",attrs);
+//        HWLog(@"%@",attrs);
         HWEmotionAttachment *attach = attrs[@"NSAttachment"];
         
         if (attach) {

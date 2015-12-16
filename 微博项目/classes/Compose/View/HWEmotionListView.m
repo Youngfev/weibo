@@ -36,6 +36,7 @@
         pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
 //        [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"pageImage"];//不提供pageImage了？？
         pageControl.userInteractionEnabled = NO;
+        pageControl.hidesForSinglePage = YES;
         [self addSubview:pageControl];
         self.pageControl = pageControl;
     }
@@ -46,6 +47,8 @@
 -(void)setEmotions:(NSArray *)emotions
 {
     _emotions = emotions;
+    
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     NSUInteger count = (emotions.count + HWEmotionListPageSize -1) / HWEmotionListPageSize;
 //    HWLog(@"%zd",count);
@@ -64,7 +67,7 @@
         pageView.emotions = [emotions subarrayWithRange:range];
         [self.scrollView addSubview:pageView];
     }
-    
+    [self setNeedsLayout];
 }
 
 -(void)layoutSubviews

@@ -15,8 +15,10 @@
 
 #define HWRandomColor HWColor(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
 
-#define HWEmotionButtonNotificationName @"EmotionButtonNotificationName"
-#define HWDidSelectEmotionButton @"DidSelectEmotionButton"
+//#define HWEmotionButtonNotificationName @"EmotionButtonNotificationName"
+//#define HWDidSelectEmotionButton @"DidSelectEmotionButton"
+
+#import "HWConst.h"
 
 #import "UIView+HWExtension.h"
 #import "UIBarButtonItem+Extension.h"
@@ -29,8 +31,5 @@
 #else//发布阶段
 #define HWLog(...)
 #endif
-
-
-
 
 #endif /* PrefixHeader_pch */

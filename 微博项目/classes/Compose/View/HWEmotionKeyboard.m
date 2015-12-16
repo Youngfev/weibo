@@ -11,6 +11,7 @@
 #import "HWEmotionTabBar.h"
 #import "HWEmotion.h"
 #import "MJExtension.h"
+#import "HWEmotionTool.h"
 
 @interface HWEmotionKeyboard ()<HWEmotionTabBarDelegate>
 
@@ -28,7 +29,7 @@
 -(HWEmotionListView*)recentListView{
     if (_recentListView == nil) {
         _recentListView = [[HWEmotionListView alloc] init];
-        
+        self.recentListView.emotions = [HWEmotionTool recentEmotions];
     }
     return _recentListView;
 }
@@ -75,11 +76,20 @@
         [self addSubview:tabBar];
         self.tabBar = tabBar;
         
+        //表情选中的通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelect) name:HWEmotionButtonNotificationName object:nil];
     }
     return self;
     
 }
 
+-(void)emotionDidSelect
+{
+    self.recentListView.emotions = [HWEmotionTool recentEmotions];
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 -(void)layoutSubviews
 {
     [super layoutSubviews];
@@ -97,7 +107,6 @@
 -(void)emotionTabBar:(HWEmotionTabBar *)tabBar didSelectButton:(HWEmotionTabBarButtonType)buttonType
 {
     
-//    [self.showingListView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.showingListView removeFromSuperview];
     
     switch (buttonType) {

@@ -10,6 +10,7 @@
 #import "HWEmotionPageView.h"
 #import "HWEmotion.h"
 #import "HWEmotionPopView.h"
+#import "HWEmotionTool.h"
 
 @interface HWEmotionPageView ()
 @property (nonatomic,weak) HWEmotionPopView *popView;
@@ -37,9 +38,17 @@
         [delegateBtn addTarget:self action:@selector(delegateBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:delegateBtn];
         self.delegateBtn = delegateBtn;
+        
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressView:)];
+        [self addGestureRecognizer:longPress];
     }
     return self;
     
+}
+
+-(void)longPressView:(UILongPressGestureRecognizer *)longPress
+{
+    HWLog(@"longPressView");
 }
 
 -(void)delegateBtnClick
@@ -90,6 +99,9 @@
     [window addSubview:self.popView];
     self.popView.y = CGRectGetMidY(btnFrame) - self.popView.height;
     self.popView.centerX = CGRectGetMidX(btnFrame);
+    
+    //将选中的表情存储进沙盒
+    [HWEmotionTool addRecentEmotion:emotion];
     
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
     userInfo[HWDidSelectEmotionButton] = emotion;
