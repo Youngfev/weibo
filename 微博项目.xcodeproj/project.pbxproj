@@ -250,6 +250,7 @@
 		CCA7A6411C15B046005517A1 /* HWTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTitleButton.m; sourceTree = "<group>"; };
 		CCAA87BB1C22DF1B0020B20F /* HWfix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWfix.h; sourceTree = "<group>"; };
 		CCAA87BC1C22DF1B0020B20F /* HWfix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWfix.m; sourceTree = "<group>"; };
+		CCAA87BE1C22F1990020B20F /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		CCCEDF511C1404A9000144E6 /* HWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabBar.h; sourceTree = "<group>"; };
 		CCCEDF521C1404A9000144E6 /* HWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabBar.m; sourceTree = "<group>"; };
 		CCCEDF561C142FF7000144E6 /* HWNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWNewFeatureController.h; sourceTree = "<group>"; };
@@ -843,6 +844,7 @@
 				CCFA0F961C11ADCE00EAF430 /* Info.plist */,
 				CCFA0F911C11ADCE00EAF430 /* Assets.xcassets */,
 				CCFA0FB81C11AEEC00EAF430 /* PrefixHeader.pch */,
+				CCAA87BE1C22F1990020B20F /* index.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
