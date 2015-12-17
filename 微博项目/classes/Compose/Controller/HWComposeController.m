@@ -98,6 +98,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelect:) name:HWEmotionButtonNotificationName object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidDelegate) name:@"delegateEmotionNotification" object:nil];
+    
 }
 
 -(void)dealloc{
@@ -107,6 +108,7 @@
 -(void)emotionDidDelegate
 {
     [self.textView deleteBackward];
+
 }
 
 -(void)emotionDidSelect:(NSNotification *)notification
