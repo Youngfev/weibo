@@ -73,6 +73,8 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 #warning 后台运行
+    
+    #warning 后台运行
     __block UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
         [application endBackgroundTask:task];
     }];
