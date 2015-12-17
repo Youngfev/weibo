@@ -72,7 +72,6 @@
 		CCA7A63D1C158278005517A1 /* HWAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA7A63C1C158278005517A1 /* HWAccountTool.m */; };
 		CCA7A63F1C159A05005517A1 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA7A63E1C159A05005517A1 /* Foundation+Log.m */; };
 		CCA7A6421C15B046005517A1 /* HWTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA7A6411C15B046005517A1 /* HWTitleButton.m */; };
-		CCAA87BD1C22DF1B0020B20F /* HWfix.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAA87BC1C22DF1B0020B20F /* HWfix.m */; };
 		CCCEDF531C1404A9000144E6 /* HWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCEDF521C1404A9000144E6 /* HWTabBar.m */; };
 		CCCEDF581C142FF7000144E6 /* HWNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCEDF571C142FF7000144E6 /* HWNewFeatureController.m */; };
 		CCCEDF5D1C148B5C000144E6 /* HWOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCEDF5C1C148B5C000144E6 /* HWOAuthController.m */; };
@@ -248,8 +247,6 @@
 		CCA7A63E1C159A05005517A1 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		CCA7A6401C15B046005517A1 /* HWTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTitleButton.h; sourceTree = "<group>"; };
 		CCA7A6411C15B046005517A1 /* HWTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTitleButton.m; sourceTree = "<group>"; };
-		CCAA87BB1C22DF1B0020B20F /* HWfix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWfix.h; sourceTree = "<group>"; };
-		CCAA87BC1C22DF1B0020B20F /* HWfix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWfix.m; sourceTree = "<group>"; };
 		CCCEDF511C1404A9000144E6 /* HWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabBar.h; sourceTree = "<group>"; };
 		CCCEDF521C1404A9000144E6 /* HWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabBar.m; sourceTree = "<group>"; };
 		CCCEDF561C142FF7000144E6 /* HWNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWNewFeatureController.h; sourceTree = "<group>"; };
@@ -570,8 +567,6 @@
 				CC6A32EE1C12C4F5000E682F /* main.m */,
 				CC8605E71C21673D009EAEE9 /* HWConst.h */,
 				CC8605E81C21673D009EAEE9 /* HWConst.m */,
-				CCAA87BB1C22DF1B0020B20F /* HWfix.h */,
-				CCAA87BC1C22DF1B0020B20F /* HWfix.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1071,7 +1066,6 @@
 				CC6762881C15D56800049853 /* UIImage+GIF.m in Sources */,
 				CCFA48951C167A5900C8AA2A /* HWStatus.m in Sources */,
 				CC6A33151C1331F6000E682F /* HWDropMenu.m in Sources */,
-				CCAA87BD1C22DF1B0020B20F /* HWfix.m in Sources */,
 				CC8177FD1C1EFDE9007645D6 /* NSString+Emoji.m in Sources */,
 				CC6762831C15D56800049853 /* SDWebImageDownloader.m in Sources */,
 				CCFA48AF1C16804600C8AA2A /* MJExtensionConst.m in Sources */,
