@@ -262,7 +262,8 @@
     self.sourceLabel.text = status.source;
     
     /** 正文 */
-    self.contentLabel.text = status.text;
+//    self.contentLabel.text = status.text;
+    self.contentLabel.attributedText = status.attributedText;
     self.contentLabel.frame = statusFrame.contentLabelF;
 
     
@@ -274,14 +275,14 @@
     if (status.retweeted_status) {
         
         HWStatus *retweeted_status = status.retweeted_status;
-        HWUser *retweeted_status_user = retweeted_status.user;
+//        HWUser *retweeted_status_user = retweeted_status.user;
     
         self.retweetView.hidden = NO;
         self.retweetView.frame = statusFrame.retweetViewF;
         
-        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@",retweeted_status_user.name,retweeted_status.text];
+//        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@",retweeted_status_user.name,retweeted_status.text];
         
-        self.retweetContentLabel.text = retweetContent;
+        self.retweetContentLabel.attributedText = status.retweeted_statusAttributedText;
         self.retweetContentLabel.numberOfLines = 0;
         self.retweetContentLabel.font = HWStatusCellRetweetContentFont;
         self.retweetContentLabel.frame = statusFrame.retweetContentLabelF;

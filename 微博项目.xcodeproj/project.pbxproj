@@ -10,6 +10,7 @@
 		CC00C26F1C1A89EF00CB51D0 /* HWIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC00C26E1C1A89EF00CB51D0 /* HWIconView.m */; };
 		CC104C191C1D98AE00ADAC00 /* HWEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC104C181C1D98AE00ADAC00 /* HWEmotionTabBar.m */; };
 		CC104C1C1C1D98DA00ADAC00 /* HWEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC104C1B1C1D98DA00ADAC00 /* HWEmotionTabBarButton.m */; };
+		CC13C05C1C26B6B200BDE772 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = CC13C05B1C26B6B200BDE772 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CC39A0D61C1E608D00C3E8AC /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = CC39A0D51C1E608D00C3E8AC /* EmotionIcons */; };
 		CC63B9551C1D522E0096D88B /* HWEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = CC63B9541C1D522E0096D88B /* HWEmotionKeyboard.m */; };
 		CC63B95B1C1D526B0096D88B /* HWEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC63B95A1C1D526B0096D88B /* HWEmotionListView.m */; };
@@ -29,6 +30,7 @@
 		CC67628B1C15D56800049853 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6762791C15D56800049853 /* UIImageView+HighlightedWebCache.m */; };
 		CC67628C1C15D56800049853 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CC67627B1C15D56800049853 /* UIImageView+WebCache.m */; };
 		CC67628D1C15D56800049853 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC67627D1C15D56800049853 /* UIView+WebCacheOperation.m */; };
+		CC67A44D1C26CD1400A2E620 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC13C05D1C26B70D00BDE772 /* libicucore.tbd */; };
 		CC6A32FD1C12C4F5000E682F /* HWDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32D91C12C4F5000E682F /* HWDiscoverViewController.m */; };
 		CC6A32FE1C12C4F5000E682F /* HWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32DF1C12C4F5000E682F /* HWHomeViewController.m */; };
 		CC6A32FF1C12C4F5000E682F /* UIView+HWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6A32E51C12C4F5000E682F /* UIView+HWExtension.m */; };
@@ -128,6 +130,9 @@
 		CC104C181C1D98AE00ADAC00 /* HWEmotionTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionTabBar.m; sourceTree = "<group>"; };
 		CC104C1A1C1D98DA00ADAC00 /* HWEmotionTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionTabBarButton.h; sourceTree = "<group>"; };
 		CC104C1B1C1D98DA00ADAC00 /* HWEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionTabBarButton.m; sourceTree = "<group>"; };
+		CC13C05A1C26B6B200BDE772 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		CC13C05B1C26B6B200BDE772 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		CC13C05D1C26B70D00BDE772 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		CC39A0D51C1E608D00C3E8AC /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		CC63B9531C1D522E0096D88B /* HWEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionKeyboard.h; sourceTree = "<group>"; };
 		CC63B9541C1D522E0096D88B /* HWEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionKeyboard.m; sourceTree = "<group>"; };
@@ -320,6 +325,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC67A44D1C26CD1400A2E620 /* libicucore.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +364,15 @@
 				CC8A6B091C1B0229006D179E /* HWComposeController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC13C0591C26B6B200BDE772 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				CC13C05A1C26B6B200BDE772 /* RegexKitLite.h */,
+				CC13C05B1C26B6B200BDE772 /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
 		CC67625C1C15D56800049853 /* SDWebImage */ = {
@@ -547,6 +562,7 @@
 		CC6A32E91C12C4F5000E682F /* LIb */ = {
 			isa = PBXGroup;
 			children = (
+				CC13C0591C26B6B200BDE772 /* RegexKitLite */,
 				CCFA48961C16804600C8AA2A /* MJExtension */,
 				CC67625C1C15D56800049853 /* SDWebImage */,
 				CCA7A63E1C159A05005517A1 /* Foundation+Log.m */,
@@ -811,6 +827,7 @@
 		CCFA0F791C11ADCE00EAF430 = {
 			isa = PBXGroup;
 			children = (
+				CC13C05D1C26B70D00BDE772 /* libicucore.tbd */,
 				CCFA0F841C11ADCE00EAF430 /* 微博项目 */,
 				CCFA0F9E1C11ADCE00EAF430 /* 微博项目Tests */,
 				CCFA0FA91C11ADCE00EAF430 /* 微博项目UITests */,
@@ -1092,6 +1109,7 @@
 				CC8605E61C21011F009EAEE9 /* HWEmotionTool.m in Sources */,
 				CCFA48B21C16804600C8AA2A /* MJPropertyKey.m in Sources */,
 				CC6A33041C12C4F5000E682F /* HWProfileViewController.m in Sources */,
+				CC13C05C1C26B6B200BDE772 /* RegexKitLite.m in Sources */,
 				CCEA3E8D1C1BCC4E0074C757 /* HWTextView.m in Sources */,
 				CCA7A6251C15368F005517A1 /* AFHTTPRequestOperationManager.m in Sources */,
 				CC6762841C15D56800049853 /* SDWebImageDownloaderOperation.m in Sources */,

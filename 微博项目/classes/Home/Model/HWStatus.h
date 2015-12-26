@@ -10,7 +10,10 @@
 @class HWUser;
 @interface HWStatus : NSObject
 @property (nonatomic,copy) NSString * idstr;
+
 @property (nonatomic,copy) NSString* text;
+@property (nonatomic,copy) NSAttributedString *attributedText;
+
 @property (nonatomic,strong) HWUser* user;
 /**	string	微博创建时间*/
 @property (nonatomic, copy) NSString *created_at;
@@ -25,4 +28,5 @@
 @property (nonatomic,assign) NSInteger reposts_count;
 @property (nonatomic,assign) NSInteger comments_count;
 @property (nonatomic,assign) NSInteger attitudes_count;
+@property (nonatomic,copy) NSAttributedString *retweeted_statusAttributedText;
 @end

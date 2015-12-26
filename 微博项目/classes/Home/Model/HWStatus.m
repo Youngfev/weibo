@@ -9,11 +9,48 @@
 #import "HWStatus.h"
 #import "MJExtension.h"
 #import "HWPhoto.h"
+#import "RegexKitLite.h"
+#import "HWUser.h"
 
 @implementation HWStatus
 + (NSDictionary*)mj_objectClassInArray
 {
     return @{@"pic_urls":[HWPhoto class]};
+}
+
+-(NSAttributedString *)attributedTextWithString:(NSString *)text
+{
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+    
+    NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
+    NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5-_]+";
+    // #话题#的规则
+    NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
+    // url链接的规则
+    NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+    
+    NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@",emotionPattern,atPattern,topicPattern,urlPattern];
+    
+    [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        //        HWLog(@"%@",*capturedStrings);
+        //        HWLog(@"%@",NSStringFromRange(*capturedRanges));
+        [attributedText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:*capturedRanges];
+    }];
+    return attributedText;
+}
+
+-(void)setText:(NSString *)text
+{
+    _text = [text copy];
+    
+    self.attributedText = [self attributedTextWithString:text];
+}
+
+-(void)setRetweeted_status:(HWStatus *)retweeted_status
+{
+    _retweeted_status = retweeted_status;
+    NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@",retweeted_status.user.name,retweeted_status.text];
+    self.retweeted_statusAttributedText = [self attributedTextWithString:retweetContent];
 }
 
 /**
